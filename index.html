@@ -35,7 +35,7 @@
                 <name>Haotian Wu</name>
               </p>
               <p>
-			  Hello! This is Haotian Wu (Davidwu).
+			  Hello! This is Haotian Wu (Davidwu). I am a PhD student in <a href="https://www.imperial.ac.uk/electrical-engineering/">Imperial College London</a>. I am supervised by  <a href="https://www.imperial.ac.uk/people/d.gunduz"> Prof. Deniz Gunduz</a>. 
               </p>
 			  <p>
                 I got my <strong> Master of Science </strong> degree at <a href="http://www.zju.edu.cn/english/">Zhejiang University</a> with <strong> Excellent Postgraduate Students' award </strong> in 2020, where I was supervised by <a href="https://scholar.google.com/citations?hl=en&user=rgwDYosAAAAJ&view_op=list_works&sortby=pubdate"> Prof. Ji Xiang</a>. 
@@ -44,7 +44,7 @@
 				Before, I was also awarded the <strong> degree of Master with Distinction</strong> in Control Systems at <a href="https://www.imperial.ac.uk/electrical-engineering/research/control-and-power/">Imperial College London</a> in 2018, where I was supervised by <a href="https://www.imperial.ac.uk/people/r.vinter">Prof. Richard Vinter</a>. 
 
 			   <p>
-				I got my <strong> Bachelor's degree</strong> in Automation as <strong>Outstanding Graduates</strong> at <a href="http://www.zju.edu.cn/english/">Zhejiang Univerisity</a> in 2017, where I was supervised by <a href="https://scholar.google.com/citations?user=ic9y2dIAAAAJ&hl=zh-CN">Prof. Zhiyun Lin</a>.
+				I got my <strong> Bachelor's degree</strong> in Automation as <strong>Outstanding Graduates</strong> at <a href="http://www.zju.edu.cn/english/">Zhejiang University</a> in 2017, where I was supervised by <a href="https://scholar.google.com/citations?user=ic9y2dIAAAAJ&hl=zh-CN">Prof. Zhiyun Lin</a>.
               </p>
               <p style="text-align:center">
                 <a href="mailto:haotianwu@zju.edu.cn">Email</a> &nbsp/&nbsp
@@ -75,12 +75,7 @@
             <td style="padding:20px;width:100%;vertical-align:middle">
               <heading>Research</heading>
               <p>
-                I'm interested in control theory, computer vision, machine learning and robotics. Some of my past research focuses on the visual part of robotics such like visual odometry and depth prediction in stereo vision, etc. Recently, I am doing some work based on the GAN and Siamese net in change detection.
-                </p>
-                <p>
-        Besides, I have passion in the Bayesian computational methods, Monte-Carlo class solution in tracking problems and Markov Decision Process in learning control.
-				</p>
-				<p>Some of my representative past works are:
+                I'm interested in control theory, computer vision, machine learning and communication. Some of my past works are:
               </p>
             </td>
         </tr>
@@ -90,41 +85,6 @@
 	<!--Papers-->			
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
 		<tbody>
-	<!--CD paper-->
-		<tr onmouseout="CD_stop()" onmouseover="CD_start()" bgcolor="#ffffd0">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='CD'><img src='images/change_st.jpg'></div>
-                <img src='images/change.jpg'>
-              </div>
-              <script type="text/javascript">
-                function CD_start() {
-                  document.getElementById('CD').style.opacity = "1";
-                }
-
-                function CD_stop() {
-                  document.getElementById('CD').style.opacity = "0";
-                }
-                USV_stop()
-				
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              
-                <papertitle><font color='#0066CC'>Change detection with GAN and Siamese net</font></papertitle>
-
-              <br>
-              <strong>Haotian Wu</strong>
-              <br>
-              <a href="https://github.com/eedavidwu/GAN_based_CD">pytorch code</a>
-              <p>
-				For change detection in remote sensing image, limited dataset, low resolution and poor generalization are main challenges. So GAN and some unsupervised methods attract my interests.
-			  </p>
-			  <p> 
-			  This work algorithm used a Siamese net as the generator, which consists of four encoder and decoder blocks with skip connection. GAN structure is used to encode some latent features and prior knowledge for generalization.			 
-			  </p>      
-		   </td>
-         </tr>      
 		   
 		<!--Fishery paper-->
 		<tr onmouseout="fish_stop()" onmouseover="fish_start()" bgcolor="#ffffd0">
@@ -206,30 +166,6 @@
 			  </p>
             </td>
          </tr>
-		<!--3rd sensor paper
-		 <tr bgcolor="#ffffd0">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src='images/stereo.jpg'>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-
-                <papertitle><font color='#0066CC'>Dry camera calibration for underwater stereo processing by semi-global matching</font></papertitle>
-        
-              <br>
-              Zejun Deng, Zhifeng Sun, <strong>Haotian Wu</strong>, et al.
-              <br>
-              <em>Sensors </em>, 2019
-              <br>
-              <p>
-			  This paper presents an efficient underwater stereo matching algorithm with a dry camera calibration based on the characteristics of underwater image. 
-
-			 </p>
-			 <p>
-
-				Experiments show that this method are feasible. This shows that our work for underwater operations has a good guiding significance.			 </p>
-            </td>
-         </tr>
-		 -->
 		 
 		 
 		<!--4th ccc cnn paper-->
@@ -264,89 +200,13 @@
       <p>
 			This paper presents a novel method used for detecting wind turbine blade imbalance with high accuracy.
 			</p>
-<p>
+      <p>
 			Generator speed, torque and X acceleration were processed into combined spectral images with 'Fourier transform', which were then fed into CNN model to extract the fault features. 
-</p>
-
-			 
+      </p> 
             </td>
       </tr>
 		
-		
-		<!--5th paper mobile robot-->
-		 <tr onmouseout="car_stop()" onmouseover="car_start()" bgcolor="#ffffd0">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='car_image'><img src='images/control_all.jpg'></div>
-                <img src='images/mobile_QR.jpg'>
-              </div>
-              <script type="text/javascript">
-                function car_start() {
-                  document.getElementById('car_image').style.opacity = "1";
-                }
-
-                function car_stop() {
-                  document.getElementById('car_image').style.opacity = "0";
-                }
-                car_stop()
-				
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <papertitle><font color='#0066CC'>Self-correcting mobile robot based on special landmark and fuzzy PID control.</font> </papertitle>
-              </a>
-              <br>
-              <strong>Haotian Wu</strong>, Junjie Liu and Kaijian Liu.
-              <br>
-              <em>Industrial Control Computer </em>, 2017
-              <br>
-              <a href="https://youtu.be/rOF4JZ1-VXM">video</a> /
-			  <a href="https://github.com/eedavidwu/Mobile_robot_interface">project code</a>
-              <p>
-			  A kind of mobile robot applied to warehouse automation is introduced.  The robot is based on special landmark and fuzzy PID controller.
-			 </p>
-			  <p>
-			  The special landmark-based correction method is faster and more precise than the simple angle-based tracking algorithm. 
-			  </p>
-            </td>
-         </tr>
-		
-		
-		
-			<!--6th paper algo-robot-->
-		 <tr onmouseout="al_car_stop()" onmouseover="al_car_start()" bgcolor="#ffffd0">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='al_car_image'><img src='images/algri_robot.jpg'></div>
-                <img src='images/rf.jpg'>
-              </div>
-              <script type="text/javascript">
-                function al_car_start() {
-                  document.getElementById('al_car_image').style.opacity = "1";
-                }
-
-                function al_car_stop() {
-                  document.getElementById('al_car_image').style.opacity = "0";
-                }
-                al_car_stop()
-				
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <papertitle><font color='#0066CC'>Research on agricultural mobile robot based on random forest. </font> </papertitle>
-              </a>
-              <br>
-              <strong>Haotian Wu</strong>, Qianying Ye and Kaijian Liu.
-              <br>
-              <em>Industrial Control Computer </em>, 2017
-              <p>
-	          This mobile robot used QR code as the localization  method. And random forest algorithm is used to predict the growth of crops and make decisions on agricultural behaviors.
-	         </p>
-            </td>
-         </tr>
-		
-		
-		
+	
 		</tbody>  
 		</table>
 
@@ -417,7 +277,7 @@
             </td>
           </tr>
 		
-		<!--1st- Project: SLAM and USV-->
+		<!--2nd- Project: SLAM and USV-->
 		<tr onmouseout="USV_stop()" onmouseover="USV_start()" bgcolor="#ECF5FF">
 		
             <td style="padding:20px;width:25%;vertical-align:middle">
@@ -440,7 +300,7 @@
               
                 <papertitle><font color='#0066CC'>Visual Intelligence of USV</font></papertitle>
               <br>
-              <strong>Haotian Wu</strong>,  &nbsp; Feiyang Suo
+              <strong>Haotian Wu</strong>
               <br>
               <em>Zhejiang University</em>, &nbsp; 2019.06 - 2020.03
               <br>
@@ -455,44 +315,6 @@
             </td>
           </tr>
 		  
-		      <!--Stereo paper-->
-		<tr onmouseout="stereo_stop()" onmouseover="stereo_start()" bgcolor="#ECF5FF">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='USV_image'><img src='images/USV_edge_stereo.jpg'></div>
-                <img src='images/USV_edge_stereo.jpg'>
-              </div>
-              <script type="text/javascript">
-                function stereo_start() {
-                  document.getElementById('USV').style.opacity = "1";
-                }
-
-                function stereo_stop() {
-                  document.getElementById('USV').style.opacity = "0";
-                }
-                stereo_stop()
-				
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              
-                <papertitle><font color='#0066CC'>Learning stereo vision and edge extraction for the USV</font></papertitle>
-
-              <br>
-              <strong>Haotian Wu</strong>
-              <br>
-              <a href="https://github.com/eedavidwu/PSM_USV">Stereo vision code</a> /
-              <a href="https://github.com/eedavidwu/HED_pytorch">HED-net pytorch code </a> 
-              <p>
-			  This learning algorithm used a motified PSM and HED net, which results in an end-to-end method to extract the edge information and disparity. 
-			  </p>
-			  <p> 
-			  This algorithm extract the feature with the PSM backbone, and then regress the disparity. The dataset we used is the SceneFlow and KITTI 2015.
-			  </p>
-            </td>
-         </tr>   
-		  
-		
 		<!--2nd- Project: worker-->
 		<tr onmouseout="worker_stop()" onmouseover="worker_start()" bgcolor="#ECF5FF">
 		
@@ -534,44 +356,6 @@
 			</td>
           </tr>
 		  
-		  <!--3rd- Project: AUV-->
-		<tr onmouseout="AUV_PRO_stop()" onmouseover="AUV_PRO_start()" bgcolor="#ECF5FF">
-		
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='AUV_project_image'><img src='images/fishery_AUV.jpg'></div>
-                <img src='images/AUV.jpg'>
-              </div>
-              <script type="text/javascript">
-                function AUV_PRO_start() {
-                  document.getElementById('AUV_project_image').style.opacity = "1";
-                }
-
-                function AUV_PRO_stop() {
-                  document.getElementById('AUV_project_image').style.opacity = "0";
-                }
-                AUV_PRO_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-                <papertitle><font color='#0066CC'>Visual Intelligence and Control of AUV</font></papertitle>
-              <br>
-              <strong>Haotian Wu</strong>, Liwei Kou, Shimin He
-              <br>
-              <em>Zhejiang Univerisy</em>, 2018.10-2019.06
-              <br>
-              <a href="https://youtu.be/tDh8MKWqdIM">video_fishery_AUV</a> /
-              <a href="https://youtu.be/i9fgLTIMUnQ">video_AUV</a> 
-              
-              <p>
-			  Develop a mini-AUV for fishery project with object detection and depth prediction. 
-			  </p>
-              <p>
-			  Experiments in tracking and filters for the AUV.		  
-			  </p>
-
-            </td>
-          </tr>
           <!--4th- Project: mobile robot-->
 		<tr onmouseout="mobile_stop()" onmouseover="mobile_start()" bgcolor="#ECF5FF">
 		
@@ -598,7 +382,7 @@
               <br>
               <strong>Haotian Wu</strong>
               <br>
-              <em>Zhejiang Univerisity</em>, 2017
+              <em>Zhejiang University</em>, 2017
               <br>
               <a href="https://arxiv.org/abs/1806.04171">video</a>/
 			  <a href="https://github.com/eedavidwu/Mobile_robot_interface/">Interface design</a> /
@@ -609,55 +393,6 @@
 			<p>
 			  The main work in this project includes: hardware design, obtaining the location of mobile robot, control algorithm, correction of motion deviation, path planning and human-computer interaction.
 				</p>
-            </td>
-          </tr>
-         <!--5th 2 HhuaWei RF  -->
-		<tr bgcolor="#ECF5FF">
-		
-            <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src='images/rf_predict.jpg'>
-              
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-          
-                <papertitle><font color='#0066CC'>Prediction of users' churn and portrait</font></papertitle>
-          
-              <br>
-              Haotian Wu
-              <br>
-              <em>Huawei Research Institute, 2012 Laboratories</em>, 2016.12 -- 2017.06
-              <br>
-              <p>
-			  Build the model to predict the user churn based on random forest algorithm
-			  </p>
-			  
-              <p>
-				Draw the portraits of users based on their bills and habits data. 
-			  </p>
-            </td>
-          </tr>
-		 <!--6th 2 wheel car -->
-		<tr bgcolor="#ECF5FF">
-		
-            <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src='images/car.jpg'>
-			</td>
-
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              
-                <papertitle><font color='#0066CC'>Two-Wheel Self Balancing Smart Car</font></papertitle>
-
-              <br>
-              <strong>Haotian Wu</strong>
-              
-              <br>
-              <em>Zhejiang Univerisity</em>, 2016
-              <br>
-              <a href="https://arxiv.org/abs/1806.04171">video</a> 
-              <p>
-			  This project uses gyroscope and accelerator to get the information of vehicle's pose, which is used to predict the pose in the motion by Kalman filter algorithm.
-			  Photoelectric Sensor is used to obtain path information, and PID algorithm is used to realize the closed-loop control of two independent DC motors.
-			  </p>
             </td>
           </tr>
 		  
@@ -815,14 +550,14 @@
               <heading>Awards and Honors</heading>
               <p>
                <strong>National Scholarship for Postgraduate Student</strong>
-               <br>&emsp; 2018 - 2019 academic year
+               <br>&emsp; 2018 - 2019 academic year in Zhejiang University
 			  </p>
 			  
            <p>
 				</p>
 			  
 			  <p>
-               <strong>		Excellent Postgraduate Students' Award</strong>
+               <strong>		Excellent Postgraduate Students' Award in Zhejiang University</strong>
                <br>&emsp; awarded in 2020 graduation
 			 </p>
 				
@@ -898,8 +633,11 @@ Many thanks to my supervisors in Zhejiang University: <a href="https://scholar.g
             <td style="padding:20px;width:100%;vertical-align:middle">
               <heading>Acknowledgement</heading>
               <p>
-               Some achievements would not have been the same without the support and coropration with my teammate in the lab. Grateful to some works from Dr. Liwei Kou, Shimin He, Feiyang Suo.
-				</p>
+               Some works would not have been the same without the support and coropration with my friend. 
+              </p>
+              <p>
+              Grateful to support from Dr. Liwei Kou, Shimin He, Lyv, Han.
+				      </p>
 
             </td>
         </tr>
