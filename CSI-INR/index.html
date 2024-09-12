@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content=>
+  <meta name="keywords" content=>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BiDAStereo </title>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8RM5LWFPPP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-8RM5LWFPPP');
+  </script>
+
+  <!-- <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet"> -->
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+  <!-- <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"> -->
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <style>
+    .image-container {
+  text-align: center; /* Center aligns inline content within the container */
+}
+
+    .centered-image {
+      display: block; /* Ensures the image behaves as a block element */
+      margin: 0 auto; /* Auto margins horizontally center the image */
+      max-width: 100%; /* Ensures the image does not exceed its container's width */
+      height: auto; /* Allows the image to maintain its aspect ratio */
+    }
+    .video-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .video-container .video-small {
+      width: 50%; /* 75% of 45% = 33.75% */
+    }
+    .video-container .video-large {
+      width: 90%;
+    }
+
+  </style>
+
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 style="font-size: 39px" class="title is-1 publication-title">Match-Stereo-Videos: Bidirectional Alignment for Consistent Dynamic Stereo Matching</h1>
+            <h2 style="font-size: 25px" class="title is-1 publication-title cvpr">ECCV 2024</h2>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://tomtomtommi.github.io/">Junpeng Jing</a>,</span>
+              <span class="author-block">
+                <a href="https://yebulabula.github.io/">Ye Mao</a>,</span>
+              <span class="author-block">
+                <a href="https://profiles.imperial.ac.uk/k.mikolajczyk">Krystian Mikolajczyk</a>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"></sup>Imperial College London</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2403.10755"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+
+                <span class="link-block">
+                  <a href="https://github.com/TomTomTommi/bidastereo"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+
+                  </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="video-container">
+          <video class="video-small" autoplay controls muted loop playsinline>
+            <source src="videos/Reading_input.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <div class="hero-body">
+      <div class="container" id="container-carousel 2">
+        <h2 style="text-align: center;" class="title is-4">Reconstructed videos</h2>
+        <div id="results-carousel 2" class="carousel results-carousel">
+
+          <div class="item item-ignacio-reconstruction">
+            <video style="width: 436px;" poster="" id="ignacio-reconstruction" autoplay controls muted loop playsinline
+              height="100%">
+              <source
+                src="videos/depth_raftstereo.mp4"
+                type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-ignacio-reconstruction">
+            <video style="width: 436px;" poster="" id="ignacio-reconstruction" autoplay controls muted loop playsinline
+              height="100%">
+              <source
+                src="videos/depth_dynamicstereo.mp4"
+                type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-ignacio-reconstruction">
+            <video style="width: 436px;" poster="" id="ignacio-reconstruction" autoplay controls muted loop playsinline
+              height="100%">
+              <source
+                src="videos/depth_bidastereo.mp4"
+                type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-ignacio-reconstruction">
+            <video style="width: 436px;" poster="" id="ignacio-reconstruction" autoplay controls muted loop playsinline
+              height="100%">
+              <source
+                src="videos/pointcloud_fixed_angle_raftstereo.mp4"
+                type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-ignacio-reconstruction">
+            <video style="width: 436px;" poster="" id="ignacio-reconstruction" autoplay controls muted loop playsinline
+              height="100%">
+              <source
+                src="videos/pointcloud_fixed_angle_dynamicstereo.mp4"
+                type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-ignacio-reconstruction">
+            <video style="width: 436px;" poster="" id="ignacio-reconstruction" autoplay controls muted loop playsinline
+              height="100%">
+              <source
+                src="videos/pointcloud_fixed_angle_bidastereo.mp4"
+                type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-ignacio-reconstruction">
+            <video style="width: 436px;" poster="" id="ignacio-reconstruction" autoplay controls muted loop playsinline
+              height="100%">
+              <source
+                src="videos/pointcloud_change_angle_raftstereo.mp4"
+                type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-ignacio-reconstruction">
+            <video style="width: 436px;" poster="" id="ignacio-reconstruction" autoplay controls muted loop playsinline
+              height="100%">
+              <source
+                src="videos/pointcloud_change_angle_dynamicstereo.mp4"
+                type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-ignacio-reconstruction">
+            <video style="width: 436px;" poster="" id="ignacio-reconstruction" autoplay controls muted loop playsinline
+              height="100%">
+              <source
+                src="videos/pointcloud_change_angle_bidastereo.mp4"
+                type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Dynamic stereo matching is the task of estimating consistent disparities from stereo videos with dynamic objects. 
+              Recent learning-based methods prioritize optimal performance on a single stereo pair, resulting in temporal inconsistencies. 
+              Existing video methods apply per-frame matching and window-based cost aggregation across the time dimension, leading to low-frequency oscillations at the scale of the window size. 
+            </p>
+            <p>
+              Towards this challenge, we develop a bidirectional alignment mechanism for adjacent frames as a fundamental operation. 
+              We further propose a novel framework, BiDAStereo, that achieves consistent dynamic stereo matching. 
+              Unlike the existing methods, we model this task as local matching and global aggregation. 
+              Locally, we consider correlation in a triple-frame manner to pool information from adjacent frames and improve the temporal consistency. 
+              Globally, to exploit the entire sequence's consistency and extract dynamic scene cues for aggregation, we develop a motion-propagation recurrent unit. 
+              Extensive experiments demonstrate the performance of our method, showcasing improvements in prediction quality and achieving state-of-the-art results on various commonly used benchmarks.
+            </p>
+          </div>
+          <!-- <img src="static/architecture.png"> -->
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column">
+            <div class="content">
+              <h2 class="title is-4 has-text-centered">Comparsion with existing methods</h2>
+              <div class="image-container">
+                <img src="img.png" alt="Description of the image" style="max-width: 90%; height: auto;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column">
+            <div class="content">
+              <h2 class="title is-4 has-text-centered">Results</h2>
+              <div class="image-container">
+                <img src="results.png" alt="Description of the image" style="max-width: 75%; height: auto;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre>
+<code>
+  @article{jing2024matchstereovideos,
+    title={Match-Stereo-Videos: Bidirectional Alignment for Consistent Dynamic Stereo Matching}, 
+    author={Junpeng Jing and Ye Mao and Krystian Mikolajczyk},
+    year={2024},
+    eprint={2403.10755},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV}
+    }
+</code>
+</pre>
+      </div>
+    </section>
+
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                This webpage template is adapted from <a
+                  href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>,
+                under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    </div>
+
+
+</body>
+
+</html>
