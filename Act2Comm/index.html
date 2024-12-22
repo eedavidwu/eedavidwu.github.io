@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content=>
+  <meta name="keywords" content=>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Act2Comm </title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8RM5LWFPPP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-8RM5LWFPPP');
+  </script>
+
+  <!-- <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet"> -->
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+  <!-- <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"> -->
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <style>
+    .section {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  </style>
+  <style>
+    .image-container {
+  text-align: center; /* Center aligns inline content within the container */
+}
+
+    .centered-image {
+      display: block; /* Ensures the image behaves as a block element */
+      margin: 0 auto; /* Auto margins horizontally center the image */
+      max-width: 100%; /* Ensures the image does not exceed its container's width */
+      height: auto; /* Allows the image to maintain its aspect ratio */
+    }
+    .video-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .video-container .video-small {
+      width: 50%; /* 75% of 45% = 33.75% */
+    }
+    .video-container .video-large {
+      width: 90%;
+    }
+
+  </style>
+
+</head>
+<body>
+
+
+  <section class="hero" >
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 style="font-size: 39px" class="title is-1 publication-title">Actions Speak Louder Than Words: Rate-Reward Trade-off in Markov Decision Processes
+            </h1>
+            <!--<h2 style="font-size: 25px" class="title is-1 publication-title cvpr">ICASSP 2024</h2>-->
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Anonymous author</a></span>
+            </div>
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://openreview.net/forum?id=Za3M6OZuCU&noteId=Za3M6OZuCU"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                  <a href="https://openreview.net/forum?id=Za3M6OZuCU&noteId=Za3M6OZuCU"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Open reivew</span>
+                </a>
+
+                <span class="link-block">
+                  <a href="https://github.com/"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                    
+                  </a>
+
+                  <span class="link-block">
+                    <a href="https://github.com/"
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <!-- Outer circle for Tai Chi symbol -->
+                          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                          <path d="M12 2a10 10 0 000 20c-2.21 0-4-1.79-4-4s1.79-4 4-4 4-1.79 4-4-1.79-4-4-4z" fill="currentColor"/>
+                          <!-- White dot in the black half -->
+                          <circle cx="12" cy="8" r="1.5" fill="#FFF"/>
+                          <!-- Black dot in the white half -->
+                          <circle cx="12" cy="16" r="1.5" fill="currentColor"/>
+                        </svg>
+                      </span>
+                      <span>Training log</span>
+                    </a>
+                  </span>
+                  
+                    </a>
+
+                  </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+        </div>
+      </div>
+  
+      <div class="columns is-centered">
+        <!-- Full-width Video Column with Illustration -->
+        <div class="column is-full">
+          <div class="video-container" style="margin-left: 0rem;">
+            <video class="video-large" autoplay controls muted loop playsinline style="width: 70%; height: auto;">
+              <source src="bee_dance.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+    </div>    
+  </section>
+
+
+  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              The impact of communication on decision-making systems has been extensively studied under the assumption of dedicated communication channels. We instead consider communicating through actions, where the message is embedded into the actions of an agent which interacts with the environment in a Markov decision process (MDP) framework. We conceptualize the MDP environment as a finite-state channel (FSC), where the actions of the agent serve as the channel input, while the states of the MDP observed by another agent (i.e., receiver) serve as the channel output. Here, we consider the agent communicates through its actions, while at the same time, trying to maximize its reward. We first characterize the optimal information theoretic trade-off between the average reward and the rate of reliable communication in the infinite-horizon regime. Then, we propose a practical framework to design a joint control/coding policy, termed Act2Comm, which seamlessly embeds messages into actions. From a communication perspective, Act2Comm functions as a learning-based channel coding scheme for non-differentiable FSCs under input-output constraints. From a control standpoint, Act2Comm learns an MDP policy that incorporates communication capabilities, though at the cost of some control performance. Overall, Act2Comm effectively balances the dual objectives of control and communication in this environment. Experimental results validate Act2Comm's capability to enable reliable communication while maintaining a certain level of control performance. 
+
+            </p>
+          </div>
+          <!-- <img src="static/architecture.png"> -->
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </section>
+  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h2 class="title is-4 has-text-centered">Illustrations of applying Act2Comm in MDP. </h2>
+        </div>
+      </div>
+      
+      <div class="columns is-centered">
+        <!-- Full-width Video Column with Illustration -->
+        <div class="column is-full">
+          <div class="video-container" style="margin-left: 6rem;">
+            <video class="video-large" autoplay controls muted loop playsinline style="width: 80%; height: auto;">
+              <source src="videos_input.mp4" type="video/mp4">
+            </video>
+            <p class="has-text-centered" style="margin-top: 0.25rem;">A controlled random walk example, where the agent is seeking to maximize the reward with some randomness in control. </p>
+            <p class="has-text-centered" style="margin-top: 0.25rem;"> Act2Comm is agnostic to message modality, communicate bits to any receiver who can observe the states.</p>
+
+          </div>
+        </div>
+      </div>
+      <div class="columns is-centered">
+        <!-- Full-width Video Column with Illustration -->
+        <div class="column is-full">
+          <div class="video-container" style="margin-left: 6rem;">
+            <video class="video-large" autoplay controls muted loop playsinline style="width: 80%; height: auto;">
+              <source src="video_lake.mp4" type="video/mp4">
+            </video>
+            <p class="has-text-centered" style="margin-top: 0.25rem;">The "Erratic Robot" example, where the robot is seeking to maximize the reward with some randomness in the control. </p>
+            <p class="has-text-centered" style="margin-top: 0.25rem;">Act2Comm can communicate bits to any receiver who can observe the states.</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+  </section>
+
+  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-4 has-text-centered">From a standard FSC to an action-state channel and its extension</h2>
+            <div class="image-container">
+              <img src="./Fig_1_the.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <h2 class="title is-4 has-text-centered">Theorem I: Capacity of the Action-State Channel</h2>
+            <p>
+              The capacity of the <em>action-state channel</em> without reward constraint is given by:
+            </p>
+            <div style="text-align: center; margin: 1rem 0;">
+              \[
+              C = \max_{\{\pi(x|s):x\in \mathcal{X},s\in \mathcal{S}\}} I(X; S^+|S),
+              \]
+            </div>
+            <p>
+              where \( X, S \), and \( S^+ \) follow a joint distribution given by:
+            </p>
+            <div style="text-align: center; margin: 1rem 0;">
+              \[
+              p(x,s^+,s) = \rho_\pi(s)\pi(x|s){T}(s^+|s,x), \quad x \in \mathcal{X}, \ s, s^+ \in \mathcal{S}.
+              \]
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <h2 class="title is-4 has-text-centered">Theorem II: Capacity of the Action-State Channel with Reward Constraint</h2>
+            <p>
+              The capacity of the <em>action-state channel</em> with reward constraint \(V\) is the optimal value of the following convex optimization problem:
+            </p>
+            <div style="text-align: center; margin: 1rem 0;">
+              \[
+              \max_{w \in \mathcal{W}} \ I(w,{T}) \quad 
+              \text{s.t.} \quad \sum_{s\in \mathcal{S}}\sum_{x\in \mathcal{X}} w(s,x)r(s,x) \geq V
+              \]
+            </div>
+            <p>
+              where \(I(w,{T})\) is a concave function of \(w \in \mathcal{W}\) defined as:
+            </p>
+            <div style="text-align: center; margin: 1rem 0;">
+              \[
+              I(w,{T}) \triangleq \sum_{s\in \mathcal{S}} \sum_{x\in \mathcal{X}} w(s,x) 
+              \sum_{s'\in \mathcal{S}} {T}(s'|s,x) \log \frac{{T}(s'|s,x)\sum_{x''}w(s,x'')}{\sum_{x'} {T}(s'|s,x')w(s,x')}.
+              \]
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+    <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column">
+            <div class="content">
+              <h2 class="title is-4 has-text-centered">Numerical results of Act2Comm for practical finite block lengths.</h2>
+              <div class="image-container">
+                <img src="Exp_fig_1.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem;">
+                  Fig. 1 Control-communication trade-off of Act2Comm in “Lucky Wheel”.
+                </p>
+              </div>
+              <div class="image-container">
+                <img src="Exp_fig_2.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem;">
+                  Fig. 2 Control-communication trade-off of Act2Comm in “Catch the Ball” with p=0.
+                </p>
+              </div>
+              <div class="image-container">
+                <img src="Exp_fig_3.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem;">
+                  Fig. 3 Control-communication trade-off of Act2Comm in “Catch the Ball” with p=0.2.
+                </p>
+              </div>
+            </div>
+            <div class="image-container">
+              <img src="Exp_fig_4.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+              <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem;">
+                Fig. 4 Control-communication trade-off of Act2Comm in “Erratic Robot” with p=0.2.
+              </p>
+            </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="BibTeX" style="padding-top: 1rem; padding-bottom: 1rem;">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre>
+<code>
+  @article{Act2Comm,
+    title={Actions Speak Louder Than Words: Rate-Reward Trade-off in Markov Decision Processes},
+    author={To be given},
+    journal={Open review},
+    year={2025}
+  }
+</code>
+</pre>
+      </div>
+    </section>
+
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                This webpage template is adapted from <a
+                  href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>,
+                under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    </div>
+
+
+</body>
+
+</html>
