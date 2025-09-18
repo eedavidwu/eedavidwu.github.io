@@ -1,1 +1,275 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content=>
+  <meta name="keywords" content=>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Implicit-JSCC </title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8RM5LWFPPP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-8RM5LWFPPP');
+  </script>
+
+  <!-- <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet"> -->
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+  <!-- <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"> -->
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <style>
+    .section {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  </style>
+  <style>
+    .image-container {
+  text-align: center; /* Center aligns inline content within the container */
+}
+
+    .centered-image {
+      display: block; /* Ensures the image behaves as a block element */
+      margin: 0 auto; /* Auto margins horizontally center the image */
+      max-width: 100%; /* Ensures the image does not exceed its container's width */
+      height: auto; /* Allows the image to maintain its aspect ratio */
+    }
+    .video-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .video-container .video-small {
+      width: 50%; /* 75% of 45% = 33.75% */
+    }
+    .video-container .video-large {
+      width: 90%;
+    }
+
+  </style>
+
+</head>
+<body>
+
+
+  <section class="hero" >
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 style="font-size: 39px" class="title is-1 publication-title">Leveraging Overfitting for Low-Complexity and Modality-Agnostic Joint Source-Channel Coding
+            </h1>
+            <!--<h2 style="font-size: 25px" class="title is-1 publication-title cvpr">ICASSP 2024</h2>-->
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Haotian Wu, Pier Luigi Dragotti, and Deniz Gündüz</a></span>
+            </div>
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://openreview.net/"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                <span class="link-block">
+                  <a href="https://github.com/"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                    
+                  </a>
+                    </a>
+
+                  </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Deep joint source-channel coding (DeepJSCC) enhances transmission efficiency by jointly exploiting source and channel statistics using deep neural networks. However, competitive DeepJSCC methods typically rely on advanced architectures, high decoding complexity, and large-scale training dataset, limiting their real-world applicability. This paper proposes Implicit-JSCC, a novel overfitted paradigm that directly optimizes channel symbols and a lightweight neural function for each source sample. By performing instance-specific optimization, it eliminates the need for pre-collected datasets and pre-trained model storage. As a low-complexity alternative to standard DeepJSCC, Implicit-JSCC achieves efficient image transmission with around 1000× lower decoding complexity, requiring only 475 model parameters per sample and 546 multiplications per pixel. This storage-efficient design generalizes well across diverse source distributions and achieves new state-of-the-art results on high-resolution data, highlighting the promise of overfitted codecs for future communication systems, especially in streaming scenarios where one-time encoding supports multiple decodings. 
+
+            </p>
+          </div>
+          <!-- <img src="static/architecture.png"> -->
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <h2 class="title is-4 has-text-centered">From AE-based codec to overfitted codec</h2>
+            <p>
+              The capacity of the <em>action-state channel</em> without reward constraint is given by:
+            </p>
+            <div style="text-align: center; margin: 1rem 0;">
+              \[
+              C = \max_{\{\pi(x|s):x\in \mathcal{X},s\in \mathcal{S}\}} I(X; S^+|S),
+              \]
+            </div>
+            <p>
+              where \( X, S \), and \( S^+ \) follow a joint distribution given by:
+            </p>
+            <div style="text-align: center; margin: 1rem 0;">
+              \[
+              p(x,s^+,s) = \rho_\pi(s)\pi(x|s){T}(s^+|s,x), \quad x \in \mathcal{X}, \ s, s^+ \in \mathcal{S}.
+              \]
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <h2 class="title is-4 has-text-centered">Towards ultra low-complexity and modality-agnostic DeepJSCC</h2>
+            <p>
+              The capacity of the <em>action-state channel</em> with reward constraint \(V\) is the optimal value of the following convex optimization problem:
+            </p>
+            <div style="text-align: center; margin: 1rem 0;">
+              \[
+              \max_{w \in \mathcal{W}} \ I(w,{T}) \quad 
+              \text{s.t.} \quad \sum_{s\in \mathcal{S}}\sum_{x\in \mathcal{X}} w(s,x)r(s,x) \geq V
+              \]
+            </div>
+            <p>
+              where \(I(w,{T})\) is a concave function of \(w \in \mathcal{W}\) defined as:
+            </p>
+            <div style="text-align: center; margin: 1rem 0;">
+              \[
+              I(w,{T}) \triangleq \sum_{s\in \mathcal{S}} \sum_{x\in \mathcal{X}} w(s,x) 
+              \sum_{s'\in \mathcal{S}} {T}(s'|s,x) \log \frac{{T}(s'|s,x)\sum_{x''}w(s,x'')}{\sum_{x'} {T}(s'|s,x')w(s,x')}.
+              \]
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+    <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column">
+            <div class="content">
+              <h2 class="title is-4 has-text-centered">Numerical results of Implciit-JSCC across various scenarios.</h2>
+              <div class="image-container">
+                <img src="Exp_fig_1.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem;">
+                  Fig. 1 Kodak results.
+                </p>
+              </div>
+              <div class="image-container">
+                <img src="Exp_fig_2.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem;">
+                  Fig. 2 CLIC results (high-resolution 18 images).
+                </p>
+              </div>
+              <div class="image-container">
+                <img src="Exp_fig_3.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem;">
+                  Fig. 3 Other modality: Audio and MRI data.
+                </p>
+              </div>
+            </div>
+            <div class="image-container">
+              <img src="Exp_fig_4.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+              <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem;">
+                Fig. 4 Complexity analysis.
+              </p>
+            </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="BibTeX" style="padding-top: 1rem; padding-bottom: 1rem;">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre>
+<code>
+  @article{ImplicitJSCC,
+    title={Leveraging Overfitting for Low-Complexity Deep Joint Source-Channel Coding},
+    author={Haotian Wu, Pier Luigi Dragotti, and Deniz Gündüz},
+    journal={ArXiv},
+    year={2025}
+  }
+</code>
+</pre>
+      </div>
+    </section>
+
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                This webpage template is adapted from <a
+                  href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>,
+                under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    </div>
+
+
+</body>
+
+</html>
