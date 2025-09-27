@@ -1,261 +1,510 @@
-<!DOCTYPE html>
-<html>
-
+<!DOCTYPE HTML>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content=>
-  <meta name="keywords" content=>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>C-ReLIC</title>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
-
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8RM5LWFPPP"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-8RM5LWFPPP');
+    gtag('config', 'UA-7580334-2');
   </script>
 
-  <!-- <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet"> -->
-
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
-  <!-- <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"> -->
-  <link rel="stylesheet" href="./static/css/index.css">
-  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
-  <style>
-    .section {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-    }
-  </style>
-  <style>
-    .image-container {
-  text-align: center; /* Center aligns inline content within the container */
-}
-
-    .centered-image {
-      display: block; /* Ensures the image behaves as a block element */
-      margin: 0 auto; /* Auto margins horizontally center the image */
-      max-width: 100%; /* Ensures the image does not exceed its container's width */
-      height: auto; /* Allows the image to maintain its aspect ratio */
-    }
-    .video-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-    }
-    .video-container .video-small {
-      width: 50%; /* 75% of 45% = 33.75% */
-    }
-    .video-container .video-large {
-      width: 90%;
-    }
-
-  </style>
-
-</head>
-<body>
-
-
-  <section class="hero" >
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 style="font-size: 39px" class="title is-1 publication-title">
-              Decomposing the Latent Space:<br>
-              A Phase-aware Plug-and-Play Approach for Universal Compressed Image Restoration
-            </h1>
-            <!--<h2 style="font-size: 25px" class="title is-1 publication-title cvpr">ICASSP 2024</h2>-->
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                Di You, Haotian Wu, and Pier Luigi Dragotti</a></span>
-            </div>
-            <div class="is-size-6 has-text-grey" style="margin-top: 0.3em;">
-              Imperial College London, Department of Electrical and Electronic Engineering
-            </div>
-            <div class="column has-text-centered">
-              <div class="publication-links">
-                <!-- PDF Link. -->
-                <span class="link-block">
-                  <a href="https://openreview.net/"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                    </span>
-                    <span>Paper</span>
-                  </a>
-                <span class="link-block">
-                  <a href="https://github.com/"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                    
-                  </a>
-                    </a>
-
-                  </a>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-        </div>
-      </div>
+  <title>Haotian Wu</title>
   
-  </section>
+  <meta name="author" content="Haotian Wu">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link rel="icon" type="image/jpg" href="images/imperial.JPG">
+</head>
 
-
-  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
-    <div class="container is-max-desktop">
-      <!-- Abstract. -->
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
-          <div class="content has-text-justified">
-            <p>
-              <p>
-                In this work, we propose a <strong>phase-aware</strong> and <strong>plug-and-play</strong> framework for universal compressed image restoration, termed <strong>C-ReLIC</strong> (<strong>C</strong>ompression <strong>Re</strong>storation with <strong>L</strong>atent <strong>I</strong>nvertible <strong>C</strong>onsistency). At its core is <strong>Bidirectional Latent-Operator Consistency (Bi-LOC)</strong>, a novel mechanism that factorizes latent features into measurement and detail components via an invertible operator, enabling bidirectional consistency for both fidelity and detail preservation. To further enhance quality, Bi-LOC operates within a <strong>phase-aware strategy</strong> that anchors early diffusion to global structure and refines perceptual quality in later stages. Extensive experiments show that C-ReLIC achieves state-of-the-art across diverse codecs, offering a superior fidelity and perception trade-off.
+<body>
+  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+  <tbody>
+    <tr style="padding:0px">
+    <td style="padding:0px">
+	
+	<!--Profiles-->	
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+		
+		<tbody>
+          <tr style="padding:0px">
+            <td style="padding:2.5%;width:63%;vertical-align:middle">
+              <p style="text-align:center">
+                <name>Haotian Wu</name>
               </p>
-            </p>
-          </div>
-          <!-- <img src="static/architecture.png"> -->
-        </div>
-      </div>
-    </div>
+        <p>
+			  Hello! This is Haotian Wu. I am now a postdoctoral research associate at the  <a href="https://informed-ai.net/team/haotian-wu/"> INFORMED AI Hub</a>, working in the Department of Electrical and Electronic Engineering, Imperial College London, under the supervision from <a href=" https://www.commsp.ee.ic.ac.uk/~pld/"> Prof. Pier Luigi Dragotti</a> and <a href="https://www.imperial.ac.uk/people/d.gunduz"> Prof. Deniz Gunduz</a>.         </p>
 
-    </div>
-  </section>
+        <p>
 
-  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column">
-          <div class="content">
-            <h2 class="title is-4 has-text-centered">Plug-and-Play Bi-LOC for phase-aware restration</h2>
-            <p>
-              We employ a phase-aware PnP framework built on LDMs. 
-              <strong>Top left</strong>: Overview of the sampling iterations (from T to 0). <strong>Top Right</strong>: Phase-wise weight schedules. 
-              <strong>Bottom</strong>:
-              <em>Phase I:</em> ACLA stabilizes early steps using a reference from a codec-agnostic blind restorer. 
-              <em>Phase II:</em> Bi-LOC decouples and recomposes measurement and detail in the latent space, ensuring data consistency. 
-              <em>Phase III:</em> PAP utilizes a no-reference perceptual score for late-stage polishing, aligned with human preference.
-            </p>
-            <div class="image-container">
-              <img src="phase.png" alt="Description of the image" style="max-width: 100%; height: auto;">
-              <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem;">
-                Fig. 1 Illustration of Phase-aware PnP strategy for CIR sampling.
+        Previously, I obtained my PhD in <a href="https://www.imperial.ac.uk/electrical-engineering/">Imperial College London</a>, supervised by  <a href="https://www.imperial.ac.uk/people/d.gunduz"> Prof. Deniz Gunduz</a> and <a href="https://www.imperial.ac.uk/people/k.mikolajczyk"> Prof. Krystian Mikolajczyk</a>. I got my Bachelor and Master degree in Electrical Engineering at <a href="http://www.zju.edu.cn/english/">Zhejiang University</a>. I was also awarded Master Degree with distinction in Control Systems at <a href="https://www.imperial.ac.uk/electrical-engineering/research/control-and-power/">Imperial College London</a> in 2018, supervised by <a href="https://www.imperial.ac.uk/people/r.vinter">Prof. Richard Vinter</a> and <a href="http://www.imperial.ac.uk/people/a.astolfi">Prof. Alessandro Astolfi</a>.
+        </p>
+        <p>
+          I'm interested in information-theoretic machine learning, with applications in communication, control, and computer vision.  
+
+        </p>
+              <p style="text-align:center">
+                <!--<a href="mailto:haotianwu@zju.edu.cn">Email</a> &nbsp/&nbsp
+                <a href="data/CV_wht.pdf">CV</a> &nbsp/&nbsp
+                <a href="data/haotianwu-bio.txt">Biography</a>&nbsp/&nbsp
+				        <a href="http://eedavidwu.github.io">Blog</a> &nbsp/&nbsp
+                <a href="https://github.com/eedavidwu/">Github</a> &nbsp-->
+                <!--<a href="http://www.linkedin.com/in/jonathanbarron/"> LinkedIn </a>-->
               </p>
-            </div>
+            </td>
+            <td style="padding:2.5%;width:40%;max-width:40%">
+			   <img style="width:100%;max-width:100%" alt="profile photo" src="images/wht_circle.jpg" class="hoverZoomLink">
+
+              <!-- <a href="images/My_cat.jpg"> <img style="width:100%;max-width:100%" alt="profile photo" src="images/me_circle.jpg" class="hoverZoomLink"></a> -->
+            </td>
+          </tr>
+		  </tbody>
+        </table>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tbody>
+              <tr bgcolor="#F0FFF0">
+                <td style="padding:20px;width:100%;vertical-align:middle">
+                  <heading>Book charpter</heading>
+                  </td>
+              </tr>
+             </tbody>
+           </table>
+             <!--Papers-->			
+             <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+              <tbody>    
+                 <!--feedback paper-->
+              <tr onmouseout="fish_stop()" onmouseover="fish_start()" bgcolor="#F0FFF0">
+                      <td style="padding:20px;width:100%;vertical-align:middle">
+                          <papertitle><font color='#0066CC'>Deep Joint Source and Channel Coding </font></papertitle>
           
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+                        <br>
+                        <strong>Haotian Wu</strong>, Chenghong Bian, Yulin Shao, Deniz Gündüz
+                        <br>
+                        <em>Foundations of Semantic Communication Networks </em>, 2025
+                  <br>
+                        <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/9781394247912.ch4">Online version</a>              
+                      </td>
+                </tr>
+        
+              </table>
+<p>
+<br>
+</p>
+
+     <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+      <tbody>
+          <tr bgcolor="#ffffd0">
+            <td style="padding:20px;width:100%;vertical-align:middle">
+              <heading>Journal</heading>
+              </td>
+          </tr>
+         </tbody>
+       </table>
+       	<!--Papers-->			
+         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tbody>    
+             <!--feedback paper-->
+          <tr onmouseout="fish_stop()" onmouseover="fish_start()" bgcolor="#ffffd0">
+                  <td style="padding:20px;width:100%;vertical-align:middle">
+                      <papertitle><font color='#0066CC'>Deep joint source-channel coding for adaptive image transmission over MIMO channels</font></papertitle>
+      
+                    <br>
+                    <strong>Haotian Wu</strong>, Yulin Shao, Chenghong Bian, Krystian Mikolajczyk, Deniz Gündüz
+                    <br>
+                    <em>IEEE Transactions on Wireless Communications	 </em>, 2024
+              <br>
+                    <a href="https://ieeexplore.ieee.org/document/10597355">Paper</a> /
+                    <a href="https://github.com/eedavidwu/DeepJSCC-MIMO">Code</a>
+                  
+                  </td>
+            </tr>
+
+            <!--feedback paper-->
+          <tr onmouseout="fish_stop()" onmouseover="fish_start()" bgcolor="#ffffd0">
+           
+                  <td style="padding:20px;width:100%;vertical-align:middle">
+                    
+                      <papertitle><font color='#0066CC'>Transformer-aided wireless image transmission with channel feedback
+                      </font></papertitle>
+      
+                    <br>
+                    <strong>Haotian Wu</strong>, Yulin Shao, Emre Ozfatura, Krystian Mikolajczyk, Deniz Gündüz
+                    <br>
+                    <em>IEEE Transactions on Wireless Communications	 </em>, 2024
+              <br>
+                    <a href="https://ieeexplore.ieee.org/document/10500305/">Paper</a> /
+                    <a href="https://github.com/eedavidwu/JSCCformer-DeepJSCC-feedback">Code</a>
+                   
+                  </td>
+            </tr>
+      <!--CA-JSCC paper-->
+      <tr onmouseout="fish_stop()" onmouseover="fish_start()" bgcolor="#ffffd0">
+        <td style="padding:20px;width:100%;vertical-align:middle">
+          
+            <papertitle><font color='#0066CC'>Channel-Adaptive Wireless Image Transmission with OFDM
+            </font></papertitle>
+
+          <br>
+          <strong>Haotian Wu</strong>, Yulin Shao, Krystian Mikolajczyk, Deniz Gündüz
+          <br>
+          <em>IEEE Wireless Communications Letters </em>, 2022
+          <br>
+              <a href="https://ieeexplore.ieee.org/abstract/document/9878262">Paper</a> /
+              <a href="https://github.com/eedavidwu/">Code</a>
+       
+            </td>
+        </tr>
+          <!--OTA paper-->
+          <tr onmouseout="fish_stop()" onmouseover="fish_start()" bgcolor="#ffffd0">
+                  <td style="padding:20px;width:100%;vertical-align:middle">
+                    
+                      <papertitle><font color='#0066CC'>Collaborative Semantic Communication for Edge Inference
+                      </font></papertitle>
+      
+                    <br>
+                    Wing Fei Lo, Nitish Mital, <strong>Haotian Wu*</strong>, Deniz Gündüz.
+                    <br>
+                    <em>IEEE Wireless Communications Letters </em>, 2023
+              <br>
+                    <a href="https://ieeexplore.ieee.org/document/10066513">Paper</a> /
+                    <a href="https://github.com/eedavidwu/">Code</a>
+                   
+                  </td>
+            </tr>
+
+              <tr onmouseout="fish_stop()" onmouseover="fish_start()" bgcolor="#ffffd0">
+                <td style="padding:20px;width:100%;vertical-align:middle">
+                    <papertitle><font color='#0066CC'>Semantics-Guided Diffusion for Deep Joint Source-Channel Coding in Wireless Image Transmission
+                    </font></papertitle>
     
-    <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column">
-            <div class="content">
-              <h2 class="title is-4 has-text-centered">Numerical results of C-ReLIC.</h2>
-              <div class="image-container">
-                <img src="table1.png" alt="Description of the image" style="max-width: 100%; height: auto;">
-              </div>
+                  <br>
+                  Maojun Zhang,  <strong>Haotian Wu</strong>, Guangxu Zhu, Richeng Jin, Xiaoming Chen, Deniz Gündüz
+                  <br>
+                  <em>IEEE Transactions on Wireless Communications	</em>, 2022
+                  <br>
+                  <a href="https://arxiv.org/abs/2501.01138">Paper</a> /
+                  <a href="https://github.com/MauroZMJ/SGDJSCC">Code</a>
+            <br>
+                
+                </td>
+          </tr>
+              <tr onmouseout="fish_stop()" onmouseover="fish_start()" bgcolor="#ffffd0">
+                <td style="padding:20px;width:100%;vertical-align:middle">
+                    <papertitle><font color='#0066CC'>Process-and-forward: Deep joint source-channel coding over cooperative relay networks
+                    </font></papertitle>
+                  <br>
+                  Chenghong Bian, Yulin Shao,  <strong>Haotian Wu</strong>, Emre Ozfatura, Deniz Gündüz
+                  <br>
+                  <em>IEEE Journal on Selected Areas in Communications
+                  </em>, 2025
+            <br>
+            <a href="https://ieeexplore.ieee.org/document/10845815">Paper</a> /
+            <a href="https://github.com/aprilbian/Process-and-Forward">Code</a>
+                
+                </td>
+          </tr>
+
+          </table>
+<p>
+<br>
+</p>
+
+
+
+	<!--Papers-->			
+    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+		<tbody>
+
+     <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+      <tbody>
+        <tr  bgcolor="#FFF8D7">
+          <td style="padding:20px;width:100%;vertical-align:middle">
+                <heading>Conference</heading>
+              </td>
+          </tr>
+         </tbody>
+    </table>
+    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+		<tbody>
+
+            <!--ICC paper-->
+		 <tr onmouseout="filter_stop()" onmouseover="filter_start()" bgcolor="#FFF8D7">
+      <td style="padding:20px;width:100%;vertical-align:middle">
+          <papertitle><font color='#0066CC'>LotteryCodec: Searching the Implicit Representation in a Random Network for Low-Complexity Image Compression
+          </font></papertitle>
+        <br>
+        <strong>Haotian Wu</strong>, Gongpu Chen, Pier Luigi Dragotti, Deniz Gündüz
+        <br>
+        <em> International Conference on Machine Learning (ICML), </em> 2025; <strong> <font color='#FF0000'> Spotlight (top 2.6%).</strong>
+
+        <br>
+        <a href="https://eedavidwu.github.io/LotteryCodec/"> Project page</a>
+        <a href="https://icml.cc/virtual/2025/poster/46198"> / Poster</a>
+
+      </td>
+   </tr>
+
+	<!--Papers-->			
+      <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+		<tbody>
+
+            <!--ICC paper-->
+		 <tr onmouseout="filter_stop()" onmouseover="filter_start()" bgcolor="#FFF8D7">
+      <td style="padding:20px;width:100%;vertical-align:middle">
+          <papertitle><font color='#0066CC'>Actions Speak Louder Than Words: Rate-Reward Trade-off in Markov Decision Processes
+          </font></papertitle>
+        <br>
+        <strong>Haotian Wu</strong>, Gongpu Chen, Deniz Gündüz
+        <br>
+        <em>International Conference on Learning Representations (ICLR), </em> 2025; <strong> <font color='#FF0000'> (Top 3.27%).</strong>
+
+        <br>
+        <a href="https://eedavidwu.github.io/Act2Comm/">Project page </a>
+        <a href="https://iclr.cc/virtual/2025/poster/29211"> / Poster</a>
+      </td>
+   </tr>
+
+      <!--ICC paper-->
+      <tr onmouseout="filter_stop()" onmouseover="filter_start()" bgcolor="#FFF8D7">
+        <td style="padding:20px;width:100%;vertical-align:middle">
+         
+            <papertitle><font color='#0066CC'>MIMO Channel as a Neural Function: Implicit Neural Representations for Extreme CSI Compression</font></papertitle>
+  
+          <br>
+          <strong>Haotian Wu</strong>, Maojun Zhang, Yulin Shao, Krystian Mikolajczyk, Deniz Gündüz
+          <br>
+          <em>2025 International Conference on Acoustics, Speech, and Signal Processing (ICASSP), </em> 2025.</strong>
+          <br>
+          <a href="https://eedavidwu.github.io/CSI-INR/">Project Page</a>  
+        </td>
+     </tr>
+
+
+   <tr onmouseout="filter_stop()" onmouseover="filter_start()" bgcolor="#FFF8D7">
+    <td style="padding:20px;width:100%;vertical-align:middle">
+     
+        <papertitle><font color='#0066CC'>   DiffCP: Ultra-Low Bit Collaborative Perception via Diffusion Model
+
+        </font></papertitle>
+
+      <br>
+      Ruiqing Mao,  <strong>Haotian Wu</strong>, Yukuan Jia, Zhaojun Nan, Yuxuan Sun, Sheng Zhou, Deniz Gündüz, Zhisheng Niu
+      <br>
+      <em>IEEE International Conference on Robotics and Automation (ICRA), </em> 2025; 
+
+      <br>
+      <a href="https://eedavidwu.github.io/DiffCP">Project page</a>
+    </td>
+ </tr>
+      
+      <!--ICC paper-->
+		 <tr onmouseout="filter_stop()" onmouseover="filter_start()" bgcolor="#FFF8D7">
+      <td style="padding:20px;width:100%;vertical-align:middle">
+        
+          <papertitle><font color='#0066CC'>Vision Transformer for Adaptive Image Transmission over MIMO Channels</font></papertitle>
+
+        <br>
+        <strong>Haotian Wu</strong>, Yulin Shao, Chenghong Bian, Krystian Mikolajczyk, Deniz Gündüz
+        <br>
+        <em>IEEE International Conference on Communications (ICC), </em> 2023; <strong> <font color='#FF0000'> Awarded Best paper.</strong>
+
+        <br>
+        <a href="https://scholar.google.com/citations?hl=en&user=tA7ECRUAAAAJ">Paper</a> 
+        <a href="https://github.com/eedavidwu/"> / Code</a>
+
+      </td>
+   </tr>
+
+      <!--SPAWC paper-->
+      <tr onmouseout="filter_stop()" onmouseover="filter_start()" bgcolor="#FFF8D7">
+        <td style="padding:20px;width:100%;vertical-align:middle">
+         
+            <papertitle><font color='#0066CC'>Features-over-the-Air: Contrastive Learning Enabled Cooperative Edge Inference</font></papertitle>
+  
+          <br>
+          <strong>Haotian Wu</strong>, Nitish Mital, Krystian Mikolajczyk, Deniz Gündüz
+          <br>
+          <em> </em> 2023.
+  
+          <br>
+          <a href="https://scholar.google.com/citations?hl=en&user=tA7ECRUAAAAJ">Paper</a> /
+          <a href="https://github.com/eedavidwu/">Code</a>
+  
+         
+        </td>
+     </tr>
+
+  
+		
+
+		</tbody>  
+		</table>
+
+<p>
+<br>
+</p>
+
+<p>
+<br>
+</p>
+     
+		
+
+<!--Patents part-->		
+		<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+		<tbody>
+           <tr bgcolor="#F0FFF0">
+            <td style="padding:20px;width:100%;vertical-align:middle">
+              <heading>Patents</heading>
+
+            </td>
+            </tr>
+		</tbody>
+        </table>
+		
+	<!--Patents List-->		
+		<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+		<tbody>
+
+		<!--1st patent-->
+		<tr bgcolor="#F0FFF0">
+            <td style="padding:20px;width:100%;vertical-align:middle">
+                <papertitle><font color='#0066CC'>Cooperative System of Indoor Mobile Robot Based on QR code and Fuzzy Algorithm</font></papertitle>
+              <br>
+              <strong>Haotian Wu</strong>, Kaijian Liu, Tianchen Zhang, &nbsp; &nbsp; Status: <strong> Patented</strong>
+			  <br>Patent ID: No.201610964289.8,              <a href="./data/201610964289.8.jpg"> Authorization Document</a> 
+
+			  <br>
              
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+            </td>
+		</tr>
+		
+		<!--2nd patent-->
+		<tr bgcolor="#F0FFF0">
+         
+            <td style="padding:20px;width: 100%;vertical-align:middle">
+                <papertitle><font color='#0066CC'>Agricultural mobile robot based on Random Forest</font></papertitle>
 
-    <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column">
-            <div class="content">
-              <h2 class="title is-4 has-text-centered">More visualizations.</h2>
-              <div class="image-container">
-                <img src="vis_1.png" alt="Description of the image" style="max-width: 100%; height: auto;">
-                <img src="vis_2.png" alt="Description of the image" style="max-width: 100%; height: auto;">
-                <img src="vis_3.png" alt="Description of the image" style="max-width: 100%; height: auto;">
-                <img src="vis_4.png" alt="Description of the image" style="max-width: 100%; height: auto;">
-                <img src="vis_5.png" alt="Description of the image" style="max-width: 100%; height: auto;">
-                <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem;">
-                  Fig. 1 Kodak results.
-                </p>
-              </div>
-             
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+              <br>
+              Zhiyun Lin, <strong>Haotian Wu</strong>, Junjie Liu, &nbsp; &nbsp; Status: &nbsp; <strong> Patented</strong> 
+			  <br>Patent ID: No. 201710367405.2,              <a href="./data/201710367405.2.jpg"> Authorization Document</a> 
 
+			  <br>
+			              
+			</td>
+		</tr>
+		
+        
+		<!--3rd patent-->
+	<tr bgcolor="#F0FFF0">
+            
+            <td style="padding:20px;width:100%;vertical-align:middle">
+                <papertitle><font color='#0066CC'>Smart Water-saving Faucet Based on Neural Network and SCM</font></papertitle>
+              <br>
+              <strong>Haotian Wu</strong>, &nbsp; &nbsp; &nbsp; &nbsp; Status: <strong> Patented</strong>
+			  <br>Patent ID: No.201610135909.7,  <a href="./data/2016101359097.jpg"> Authorization Document</a> 
+            
+              <br>
+			  </td>
+		</tr>
 
-    <section class="section" id="BibTeX" style="padding-top: 1rem; padding-bottom: 1rem;">
-      <div class="container is-max-desktop content">
-        <h2 class="title">BibTeX</h2>
-        <pre>
-<code>
-  @article{ReLIC,
-    title={Decomposing the Latent Space: A Phase-aware Plug-and-Play Approach 
-            for Universal Compressed Image Restoration},
-    author={Di You, Haotian Wu, and Pier Luigi Dragotti},
-    journal={ArXiv},
-    year={2025}
-  }
-</code>
-</pre>
-      </div>
-    </section>
+		
+		<!--4th patent-->
+	<tr bgcolor="#F0FFF0">
+          
+            <td style="padding:20px;width:100%;vertical-align:middle">
+                <papertitle><font color='#0066CC'>Self-correction algorithm based on attitude detection and special landmark</font></papertitle>
+              <br>
+              Zhiyun Lin, <strong>Haotian Wu</strong>, Kaijian Liu,&nbsp; &nbsp; Status: <strong> Patented</strong>
+			  <br>Patent ID: No.201710378237.7 , <a href="./data/201710378237.7.jpg"> Authorization Document</a> 
 
+			  <br>
+			              </td>
+		</tr>
+		
+		
 
-    <footer class="footer">
-      <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-8">
-            <div class="content">
+        
+		
+				
+		</tbody>
+		</table>
+             <p>
+          <br>
+				</p>
+ 
+   
+<!--Honour-->		
+		<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+		<tbody>
+      <tr bgcolor="#FFF8D7">
+            <td style="padding:20px;width:100%;vertical-align:middle">
+              <heading>Awards and Honors</heading>
               <p>
-                This webpage template is adapted from <a
-                  href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>,
-                under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    </div>
+               <strong>National Scholarship for Postgraduate Student</strong> 
+			  </p>
+			  
+           <p>
+				</p>
+			  
+			  <p>
+               <strong>		Excellent Postgraduate Students' Award in Zhejiang University</strong>
+			 </p>
+				
+                <p>
+               <strong>Postgraduate Studentship in Imperial College London </strong> 
+				</p>
+   
+                <p>
+				</p>
+                <p>
+               <strong>Outstanding undergraduate thesis in Zhejiang University</strong> 
+				</p>
+        
+                <p>
+				</p>
+               
+			   <p>
+               <strong>The Scholarship for Academic Excellence in Zhejiang University</strong> 
+				</p>
+        
+                        <p>
+				</p>
+                        <p>
+               <strong>The Scholarship for Outstanding Students in Zhejiang University</strong> 
+	
+				</p>
+
+            </td>
+        </tr>
+       </tbody>
+	   </table> 
+
+                <p>
+          <br>
+				</p>
+	
+<!--Reference-->		
+        		 	
+<!--Acknogement-->		
+		
 
 
+	
+		 	
+		</tbody>  
+		</table>
+
+
+
+
+
+
+	</td>
+    </tr>
+</tbody>
+</table>
 </body>
-
 </html>
