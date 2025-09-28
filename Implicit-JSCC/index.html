@@ -84,7 +84,7 @@
             <!--<h2 style="font-size: 25px" class="title is-1 publication-title cvpr">ICASSP 2024</h2>-->
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                Haotian Wu, Pier Luigi Dragotti, and Deniz Gündüz</a></span>
+                Haotian Wu, Gen Li, Pier Luigi Dragotti, and Deniz Gündüz</a></span>
             </div>
             <div class="column has-text-centered">
               <div class="publication-links">
@@ -126,7 +126,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Deep joint source-channel coding (DeepJSCC) enhances transmission efficiency by jointly exploiting source and channel statistics using deep neural networks. However, competitive DeepJSCC methods typically rely on advanced architectures, high decoding complexity, and large-scale training dataset, limiting their real-world applicability. This paper proposes Implicit-JSCC, a novel overfitted paradigm that directly optimizes channel symbols and a lightweight neural function for each source sample. By performing instance-specific optimization, it eliminates the need for pre-collected datasets and pre-trained model storage. As a low-complexity alternative to standard DeepJSCC, Implicit-JSCC achieves efficient image transmission with around 1000× lower decoding complexity, requiring only 475 model parameters per sample and 546 multiplications per pixel. This storage-efficient design generalizes well across diverse source distributions and achieves new state-of-the-art results on high-resolution data, highlighting the promise of overfitted codecs for future communication systems, especially in streaming scenarios where one-time encoding supports multiple decodings. 
+              This paper introduces Implicit-JSCC, a novel overfitted joint source–channel coding paradigm that directly optimizes channel symbols and a lightweight neural decoder for each source. This instance-specific strategy eliminates the need for training datasets or pre-trained models, enabling a storage-free, modality-agnostic solution. As a low-complexity alternative, Implicit-JSCC achieves efficient image transmission with around 1000x lower decoding complexity, using as few as 607 model parameters and 641 multiplications per pixel. This overfitted design inherently addresses source generalizability and achieves state-of-the-art results in the high SNR regimes, underscoring its promise for future communication systems, especially streaming scenarios where one-time offline encoding supports multiple online decoding.
 
             </p>
           </div>
@@ -143,23 +143,14 @@
       <div class="columns is-centered">
         <div class="column">
           <div class="content">
-            <h2 class="title is-4 has-text-centered">From AE-based codec to overfitted codec</h2>
-            <p>
-              The capacity of the <em>action-state channel</em> without reward constraint is given by:
-            </p>
-            <div style="text-align: center; margin: 1rem 0;">
-              \[
-              C = \max_{\{\pi(x|s):x\in \mathcal{X},s\in \mathcal{S}\}} I(X; S^+|S),
-              \]
+            <h2 class="title is-4 has-text-centered">From AE-based DeepJSCC codec to overfitted codec</h2>
+            <div class="image-container">
+              <img src="paradigm.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+              <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.0rem;">
+                Fig. 1 Operational paradigm and corresponding performance.
+              </p>
             </div>
-            <p>
-              where \( X, S \), and \( S^+ \) follow a joint distribution given by:
-            </p>
-            <div style="text-align: center; margin: 1rem 0;">
-              \[
-              p(x,s^+,s) = \rho_\pi(s)\pi(x|s){T}(s^+|s,x), \quad x \in \mathcal{X}, \ s, s^+ \in \mathcal{S}.
-              \]
-            </div>
+           
           </div>
         </div>
       </div>
@@ -172,24 +163,13 @@
         <div class="column">
           <div class="content">
             <h2 class="title is-4 has-text-centered">Towards ultra low-complexity and modality-agnostic DeepJSCC</h2>
-            <p>
-              The capacity of the <em>action-state channel</em> with reward constraint \(V\) is the optimal value of the following convex optimization problem:
-            </p>
-            <div style="text-align: center; margin: 1rem 0;">
-              \[
-              \max_{w \in \mathcal{W}} \ I(w,{T}) \quad 
-              \text{s.t.} \quad \sum_{s\in \mathcal{S}}\sum_{x\in \mathcal{X}} w(s,x)r(s,x) \geq V
-              \]
+            <div class="image-container">
+              <img src="Implicit_JSCC.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+              <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.0rem;">
+                Fig. 2 Architecture of Implicit-JSCC. Left: encoding process of the transmitter; Right: decoding process of the receiver.
+              </p>
             </div>
-            <p>
-              where \(I(w,{T})\) is a concave function of \(w \in \mathcal{W}\) defined as:
-            </p>
-            <div style="text-align: center; margin: 1rem 0;">
-              \[
-              I(w,{T}) \triangleq \sum_{s\in \mathcal{S}} \sum_{x\in \mathcal{X}} w(s,x) 
-              \sum_{s'\in \mathcal{S}} {T}(s'|s,x) \log \frac{{T}(s'|s,x)\sum_{x''}w(s,x'')}{\sum_{x'} {T}(s'|s,x')w(s,x')}.
-              \]
-            </div>
+           
           </div>
         </div>
       </div>
@@ -201,39 +181,61 @@
         <div class="columns is-centered">
           <div class="column">
             <div class="content">
-              <h2 class="title is-4 has-text-centered">Numerical results of Implciit-JSCC across various scenarios.</h2>
+              <h2 class="title is-4 has-text-centered">Numerical results of Implciit-JSCC across various scenarios</h2>
               <div class="image-container">
-                <img src="Exp_fig_1.png" alt="Description of the image" style="max-width: 100%; height: auto;">
-                <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem;">
-                  Fig. 1 Kodak results.
+                <img src="kodak_results.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.0rem;">
+                  Fig. 3 Experimental resutls on Kodak dataset.
                 </p>
               </div>
               <div class="image-container">
-                <img src="Exp_fig_2.png" alt="Description of the image" style="max-width: 100%; height: auto;">
-                <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem;">
-                  Fig. 2 CLIC results (high-resolution 18 images).
+                <img src="vis_kodak_1.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.0rem;">
+                  Fig. 4 Visulization on Kodak dataset.
                 </p>
               </div>
               <div class="image-container">
-                <img src="Exp_fig_3.png" alt="Description of the image" style="max-width: 100%; height: auto;">
-                <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem;">
-                  Fig. 3 Other modality: Audio and MRI data.
+                <img src="clic2020.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.0rem;">
+                  Fig. 5 Experimental resutls on CLIC2020 dataset.
+                </p>
+              </div>
+              <div class="image-container">
+                <img src="Audio_MRI.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.0rem;">
+                  Fig. 6 Other modality: (a). Audio and (b). MRI data.
                 </p>
               </div>
             </div>
-            <div class="image-container">
-              <img src="Exp_fig_4.png" alt="Description of the image" style="max-width: 100%; height: auto;">
-              <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem;">
-                Fig. 4 Complexity analysis.
-              </p>
-            </div>
-
-
+    
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column">
+            <div class="content">
+              <h2 class="title is-4 has-text-centered">Visual comparisons</h2>
+              <div class="image-container">
+                <img src="vis_clic.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.0rem;">
+                  Fig. 7 Comparisons on CLIC2020 dataset, SNR=0dB.
+                </p>
+              </div>
+            
+           
+            </div>
+    
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <section class="section" id="BibTeX" style="padding-top: 1rem; padding-bottom: 1rem;">
       <div class="container is-max-desktop content">
