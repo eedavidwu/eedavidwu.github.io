@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content=>
+  <meta name="keywords" content="Diffusion Posterior Sampling with Channel
+  Feedback for Adaptive Semantic Communication">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FPS-SemCom</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8RM5LWFPPP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8RM5LWFPPP');
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <!-- JS (keep jQuery if your index.js needs it) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <style>
+    .section { padding-top: 1rem; padding-bottom: 1rem; }
+    .image-container { text-align: center; margin-bottom: 2rem; }
+    .centered-image { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+    .caption { margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem; }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 style="font-size: 39px" class="title is-1 publication-title">
+              Diffusion Posterior Sampling with Channel
+              Feedback for Adaptive Semantic Communication
+            </h1>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Haotian Wu</span>
+            </div>
+            <div class="is-size-6 has-text-grey" style="margin-top: 0.3em;">
+              Imperial College London, Department of Electrical and Electronic Engineering
+            </div>
+            <div class="column has-text-centered" style="margin-top: 0.75rem;">
+              <div class="publication-links">
+                <span class="link-block">
+                  <!-- 移除 disabled，手动加上禁用效果，保持黑色 -->
+                  <button class="external-link button is-normal is-rounded is-dark" style="cursor: not-allowed;">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code (soon)</span>
+                  </button>
+                </span>
+              </div>
+            </div>
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstract -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              In this work, we propose a 
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Method figure -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <h2 class="title is-4 has-text-centered">C-ReLIC</h2>
+            <p>
+              We employ a phase-aware PnP framework built on LDMs. <strong>Top left</strong>: Overview of the sampling iterations (from T to 0). <strong>Top right</strong>: Phase-wise weight schedules. <strong>Bottom</strong>: <em>Phase I</em>: ACLA stabilizes early steps using a reference from a codec-agnostic blind restorer. <em>Phase II</em>: Bi-LOC decouples and recomposes measurement and detail in the latent space, ensuring data consistency. <em>Phase III</em>: PAP utilizes a no-reference perceptual score for late-stage polishing, aligned with human preference.
+            </p>
+
+            <figure class="image-container">
+              <img src="phase.png" alt="Phase-aware PnP strategy: schedule and three phases" class="centered-image">
+              <figcaption class="has-text-centered caption">
+                Fig. 1 Illustration of phase-aware PnP strategy for CIR sampling.
+              </figcaption>
+            </figure>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>ß
+
+
+
+  <!-- BibTeX -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{C-ReLIC,
+  title={Decomposing the Latent Space: A Phase-aware Plug-and-Play Approach for Universal Compressed Image Restoration},
+  author={You, Di and Wu, Haotian and Dragotti, Pier Luigi},
+  journal={arXiv},
+  year={2025}
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This webpage template is adapted from
+              <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>,
+              under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
