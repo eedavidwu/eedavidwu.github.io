@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content=>
+  <meta name="keywords" content=>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="./dice_2.png">
+  <title>MoRIC </title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8RM5LWFPPP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-8RM5LWFPPP');
+  </script>
+
+  <!-- <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet"> -->
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+  <!-- <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"> -->
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <style>
+    .section {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  </style>
+  <style>
+    .image-container {
+  text-align: center; /* Center aligns inline content within the container */
+}
+
+    .centered-image {
+      display: block; /* Ensures the image behaves as a block element */
+      margin: 0 auto; /* Auto margins horizontally center the image */
+      max-width: 100%; /* Ensures the image does not exceed its container's width */
+      height: auto; /* Allows the image to maintain its aspect ratio */
+    }
+    .video-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .video-container .video-small {
+      width: 50%; /* 75% of 45% = 33.75% */
+    }
+    .video-container .video-large {
+      width: 90%;
+    }
+
+  </style>
+
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column">
+            <!-- Centered Icon + Title using Flexbox -->
+            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+              <!-- 图标 -->
+              <img src="./icon_dice.png" alt="icon"
+                   style="height: 5em; margin-right: 20px;">
+              
+              <!-- 包裹 h1 的容器，设置宽度并居中文本 -->
+              <div style="text-align: center;">
+                <h1 style="font-size: 31px; line-height: 1.2; margin: 0;"
+                    class="title is-1 publication-title">
+                    MoRIC: A Modular Region-based Implicit Codec <br>
+                    for Image Compression
+                </h1>
+              </div>
+            </div>
+  
+            <!-- Authors -->
+            <div class="publication-authors has-text-centered" style="margin-top: 1rem;">
+              <p class="is-size-5" style="margin-bottom: 0.25rem;">
+                <span class="author-block">Gen Li<sup>*</sup></span>,
+                <span class="author-block">Haotian Wu<sup>*</sup></span>,
+                and <span class="author-block">Deniz Gündüz</span>
+              </p>
+              <p class="is-size-6" style="color: #666; margin-bottom: 0.25rem;">
+                *Equal contribution
+              </p>
+              <p class="is-size-6" style="color: #666; margin-bottom: 0.25rem;">
+                Imperial College London
+              </p>
+              <p class="is-size-5" style="color: #444; font-weight: 400; margin-bottom: 0;">
+                <strong>NeurIPS 2025</strong>
+              </p>
+            </div>
+  
+            <!-- Links -->
+            <div class="has-text-centered">
+              <div class="publication-links">
+                <!-- Paper Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2507.01204" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+
+                </span>
+                <!-- Code Link -->
+                <span class="link-block">
+                  <a href="https://github.com/eedavidwu/LotteryCodec" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                  <a href="https://github.com/"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-globe                    "></i>
+                  </span>
+                  <span>Other resources</span>
+                </a>
+                </span>
+              </div>
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              We introduce and validate the lottery codec hypothesis, which states that untrained subnetworks within randomly initialized networks can serve as synthesis networks for overfitted image compression, achieving rate-distortion (RD) performance comparable to trained networks. This hypothesis leads to a new paradigm for image compression by encoding image statistics into the network substructure. Building on this hypothesis, we propose LotteryCodec, which overfits a binary mask to an individual image, leveraging an over-parameterized and randomly initialized network shared by the encoder and the decoder. To address over-parametrization challenges and streamline subnetwork search, we develop a rewind modulation mechanism that improves the RD performance. LotteryCodec sets a new state-of-the-art in single-image compression. LotteryCodec also enables adaptive decoding complexity through adjustable mask ratios, offering flexible compression solutions for diverse device constraints and application requirements.
+            </p>
+          </div>
+          <!-- <img src="static/architecture.png"> -->
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </section>
+  <section class="section" style="padding-top: 1.5rem; padding-bottom: 1.5rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="box" style="background-color: white; border-left: 5px solid #3273dc; padding: 2rem;">
+            <h2 class="title is-4 has-text-primary has-text-centered" style="margin-bottom: 1rem;">
+              💡 <strong>Lottery Codec Hypothesis</strong>
+            </h2>
+            <p style="font-size: 18px; line-height: 1.6; text-align: justify;margin-bottom: 0.75rem;">
+              Let \( d \) denote a distortion function and \( H \) the entropy function. 
+              For any overfitted image codec \( g_{\mathbf{W}}(\mathbf{z}) \), 
+              there exists an over-parameterized and randomly initialized network \( g_{\mathbf{W'}} \) 
+              with \( |\mathbf{W'}| > |\mathbf{W}| \) and a pair \( (\mathbf{\tau'}, \mathbf{z'}) \) as the ‘winning tickets’, 
+              such that \( d(\mathbf{S}, \mathbf{S}') \le d(\mathbf{S}, \mathbf{S}^*) \) and 
+              \( H(\mathbf{\hat{z}}') = H(\mathbf{\hat{z}}) \).
+            </p>
+            <p>
+
+            </p>
+            <div class="image-container">
+              <img src="Problem_formulation.png" alt="Description of the image" style="max-width: 100%; height: auto;margin-bottom: 0.5rem;">
+              <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444;">
+                Fig. 1: From AE-based neural codec to LotteryCodec.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <h2 class="title is-4 has-text-centered">Experimental verification of the <em>lottery codec hypothesis</em></h2>
+            <div class="image-container">
+              <img src="Validate_hp.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+              <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem;">
+                <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444;">
+                  Fig. 2: (a) RD curve and BD-rate under different over-parameterization, (b) BD-rate vs. mask ratios, (c)-(d) BD-rate across width/depth variations, where \( (N_t, d) \) refers to \( N_t \) hidden layers and \( d \) hidden dimensions. 
+                </p>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <h2 class="title is-4 has-text-centered has-text-weight-semibold">
+              Illustration of <span class="has-text-primary">LotteryCodec</span> Scheme
+            </h2>            <div class="image-container">
+              <img src="Fig_all_illustra.png" alt="Description of the image" style="max-width: 70%; height: auto;">
+              <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem;">
+              </p>
+            </div>
+            <div class="image-container">
+              <img src="SuperMask_fig_1.png" alt="Description of the image" style="max-width: 85%; height: auto;">
+              <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444;">
+                Fig. 3: The source image is encoded into a binary mask and latent modulations. During decoding, the receiver initializes a random network and uses a modulated subnetwork to reconstruct the source.                
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <h2 class="title is-4 has-text-centered has-text-weight-semibold">
+              Illustration of <span class="has-text-primary">ModNet</span> and <span class="has-text-primary">SuperMask</span>
+            </h2>            <div class="image-container">
+              <img src="Fig_3_masked_sys.png" alt="Description of the image" style="max-width: 85%; height: auto;">
+              <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444;">
+                Fig. 4: SuperMask maps coordinates to RGB values by identifying subnetworks within a randomly initialized network, guided by modulations generated by the ModNet using latent input.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column">
+            <div class="content">
+              <h2 class="title is-4 has-text-centered">Numerical results of LotteryCodec.</h2>
+              <div class="image-container">
+                <img src="exp_results.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                
+                <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444;">
+                   (a) RD curve and BD rate on Kodak dataset. (b) RD curve and BD rate on CLIC2020 dataset. (c) BD-rate and decoding complexity across different mask ratios on Kodak dataset.
+                </p>
+
+       
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="BibTeX" style="padding-top: 1rem; padding-bottom: 1rem;">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre>
+<code>
+  @article{MoRIC,
+    title={MoRIC: A Modular Region-based Implicit Codec for Image Compression},
+    author={Gen Li, Haotian Wu, and Deniz Gündüz},
+    journal={Conference on Neural Information Processing Systems},
+    year={2025}
+  }
+</code>
+</pre>
+      </div>
+    </section>
+
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                This webpage template is adapted from <a
+                  href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>,
+                under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    </div>
+
+
+</body>
+
+</html>
