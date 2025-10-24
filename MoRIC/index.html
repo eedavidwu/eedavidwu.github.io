@@ -6,7 +6,7 @@
   <meta name="description" content=>
   <meta name="keywords" content=>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="./dice_2.png">
+  <link rel="icon" type="image/png" href="./icon_dice.png">
   <title>MoRIC </title>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 
@@ -160,7 +160,23 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              We introduce and validate the lottery codec hypothesis, which states that untrained subnetworks within randomly initialized networks can serve as synthesis networks for overfitted image compression, achieving rate-distortion (RD) performance comparable to trained networks. This hypothesis leads to a new paradigm for image compression by encoding image statistics into the network substructure. Building on this hypothesis, we propose LotteryCodec, which overfits a binary mask to an individual image, leveraging an over-parameterized and randomly initialized network shared by the encoder and the decoder. To address over-parametrization challenges and streamline subnetwork search, we develop a rewind modulation mechanism that improves the RD performance. LotteryCodec sets a new state-of-the-art in single-image compression. LotteryCodec also enables adaptive decoding complexity through adjustable mask ratios, offering flexible compression solutions for diverse device constraints and application requirements.
+            We introduce Modular Region-Based Implicit Codec (MoRIC), a novel image
+compression algorithm that relies on implicit neural representations (INRs). Unlike previous INR-based codecs that model the entire image with a single neural
+network, MoRIC assigns dedicated models to distinct regions in the image, each tai-
+lored to its local distribution. This region-wise design enhances adaptation to local
+statistics and enables flexible, single-object compression with fine-grained rate-
+distortion (RD) control. MoRIC allows regions of arbitrary shapes, and provides
+the contour information for each region as separate information. In particular, it in-
+corporates adaptive chain coding for lossy and lossless contour compression, and a
+shared global modulator that injects multi-scale global context into local overfitting
+processes in a coarse-to-fine manner. MoRIC achieves state-of-the-art performance
+in single-object compression with significantly lower decoding complexity than
+existing learned neural codecs, which results in a highly efficient compression
+approach for fixed-background scenarios, e.g., for surveillance cameras. It also
+sets a new benchmark among overfitted codecs for standard image compression.
+Additionally, MoRIC naturally supports semantically meaningful layered compres-
+sion through selective region refinement, paving the way for scalable and flexible
+INR-based codecs.
             </p>
           </div>
           <!-- <img src="static/architecture.png"> -->
@@ -168,39 +184,19 @@
       </div>
     </div>
 
-    </div>
-  </section>
-  <section class="section" style="padding-top: 1.5rem; padding-bottom: 1.5rem;">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column">
-          <div class="box" style="background-color: white; border-left: 5px solid #3273dc; padding: 2rem;">
-            <h2 class="title is-4 has-text-primary has-text-centered" style="margin-bottom: 1rem;">
-              💡 <strong>Lottery Codec Hypothesis</strong>
-            </h2>
-            <p style="font-size: 18px; line-height: 1.6; text-align: justify;margin-bottom: 0.75rem;">
-              Let \( d \) denote a distortion function and \( H \) the entropy function. 
-              For any overfitted image codec \( g_{\mathbf{W}}(\mathbf{z}) \), 
-              there exists an over-parameterized and randomly initialized network \( g_{\mathbf{W'}} \) 
-              with \( |\mathbf{W'}| > |\mathbf{W}| \) and a pair \( (\mathbf{\tau'}, \mathbf{z'}) \) as the ‘winning tickets’, 
-              such that \( d(\mathbf{S}, \mathbf{S}') \le d(\mathbf{S}, \mathbf{S}^*) \) and 
-              \( H(\mathbf{\hat{z}}') = H(\mathbf{\hat{z}}) \).
-            </p>
-            <p>
 
-            </p>
-            <div class="image-container">
-              <img src="Problem_formulation.png" alt="Description of the image" style="max-width: 100%; height: auto;margin-bottom: 0.5rem;">
-              <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444;">
-                Fig. 1: From AE-based neural codec to LotteryCodec.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
+
+  <!-- ✅ 插入图片 -->
+  <div class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="container is-max-desktop has-text-centered">
+      <img src="Fig_1_all_illustrate.png" alt="Middle illustration" style="max-width: 100%; height: auto;">
+      <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444; margin-top: 0.5rem;">
+        Fig. 1: llustration of the MoRIC framework.
+      </p>
+    </div>
+  </div>
+  <!-- ✅ 插入图片结束 -->
 
  
   <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
@@ -208,16 +204,17 @@
       <div class="columns is-centered">
         <div class="column">
           <div class="content">
-            <h2 class="title is-4 has-text-centered">Experimental verification of the <em>lottery codec hypothesis</em></h2>
+            <h2 class="title is-4 has-text-centered">Complexity analysis of the <em>MoRIC</em> </h2>
             <div class="image-container">
-              <img src="Validate_hp.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+              <img src="complexity_results.png" alt="Description of the image" style="max-width: 100%; height: auto;">
               <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem;">
                 <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444;">
-                  Fig. 2: (a) RD curve and BD-rate under different over-parameterization, (b) BD-rate vs. mask ratios, (c)-(d) BD-rate across width/depth variations, where \( (N_t, d) \) refers to \( N_t \) hidden layers and \( d \) hidden dimensions. 
+                  Fig. 2: RD performance for standard image compression. BD-rate vs. decoding complexity on (a)
+                  Davis. (b) Kodak, and (c) CLIC2020 datasets.
                 </p>
               </p>
             </div>
-
+           
           </div>
         </div>
       </div>
@@ -230,19 +227,18 @@
         <div class="column">
           <div class="content">
             <h2 class="title is-4 has-text-centered has-text-weight-semibold">
-              Illustration of <span class="has-text-primary">LotteryCodec</span> Scheme
-            </h2>            <div class="image-container">
-              <img src="Fig_all_illustra.png" alt="Description of the image" style="max-width: 70%; height: auto;">
-              <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem;">
-              </p>
-            </div>
+              Workflow of <span class="has-text-primary">MoRIC</span> Scheme
+            </h2>
             <div class="image-container">
-              <img src="SuperMask_fig_1.png" alt="Description of the image" style="max-width: 85%; height: auto;">
+              <img src="workflow.png" alt="Description of the image" style="max-width: 85%; height: auto;">
               <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444;">
-                Fig. 3: The source image is encoded into a binary mask and latent modulations. During decoding, the receiver initializes a random network and uses a modulated subnetwork to reconstruct the source.                
+                Fig. 3: The image is partitioned into <span class="mathjax">\( N \)</span> regions, 
+                each compressed using a distinct LSN 
+                <span class="mathjax">\( g_{\hat{\boldsymbol{W}}^i} \)</span> 
+                modulated with a shared GMN 
+                <span class="mathjax">\( f_{\hat{\boldsymbol{\theta}}} \)</span>.
               </p>
             </div>
-
           </div>
         </div>
       </div>
@@ -256,14 +252,18 @@
         <div class="column">
           <div class="content">
             <h2 class="title is-4 has-text-centered has-text-weight-semibold">
-              Illustration of <span class="has-text-primary">ModNet</span> and <span class="has-text-primary">SuperMask</span>
-            </h2>            <div class="image-container">
-              <img src="Fig_3_masked_sys.png" alt="Description of the image" style="max-width: 85%; height: auto;">
+              Illustration of the <span class="has-text-primary">PCM</span> mechanism
+            </h2>
+            <div class="image-container has-text-centered">
+              <img src="Architecture.png" alt="Description of the image" style="max-width: 85%; height: auto;">
               <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444;">
-                Fig. 4: SuperMask maps coordinates to RGB values by identifying subnetworks within a randomly initialized network, guided by modulations generated by the ModNet using latent input.
+                Fig. 4: Red blocks with shared icons indicate parameter-shared components across regions. 
+                Each LSN is modulated using multi-scale features generated by 
+                <span class="mathjax">\( f_{\hat{\boldsymbol{\theta}}} \)</span> 
+                from the corresponding latent vector 
+                <span class="mathjax">\( \hat{\boldsymbol{z}}^i \)</span>.
               </p>
             </div>
-
           </div>
         </div>
       </div>
@@ -280,7 +280,8 @@
                 <img src="exp_results.png" alt="Description of the image" style="max-width: 100%; height: auto;">
                 
                 <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444;">
-                   (a) RD curve and BD rate on Kodak dataset. (b) RD curve and BD rate on CLIC2020 dataset. (c) BD-rate and decoding complexity across different mask ratios on Kodak dataset.
+                  Fig. 5: RD performance for standard image compression. (a) RD curve and BD rate on Davis. (b)
+RD curve and BD rate on Kodak. (c) RD curve and BD rate on CLIC2020.
                 </p>
 
        
@@ -291,6 +292,236 @@
         </div>
       </div>
     </section>
+    
+    <div class="juxtapose" id="jp">
+      <img class="jp-img" src="c3_0191.png"> <!-- 底图 -->
+      <img class="jp-img jp-top" id="topImg" src="moric_0185.png"> <!-- 上层 -->
+      
+      <div class="slider" id="bar"></div>
+      <div class="labels">
+        <div class="badge left">
+          <span class="name">MoRIC</span><span class="dot">•</span>
+          <span class="num">0.185<span class="unit">bpp</span></span><span class="dot">•</span>
+          <span class="num">35.40<span class="unit">dB</span></span>
+        </div>
+        <div class="badge right">
+          <span class="name">C3</span><span class="dot">•</span>
+          <span class="num">0.191<span class="unit">bpp</span></span><span class="dot">•</span>
+          <span class="num">35.10<span class="unit">dB</span></span>
+        </div>
+      </div>
+    </div>
+    
+    <style>
+    .labels{ position:absolute; inset:0; pointer-events:none; }
+.badge{
+  position:absolute; bottom:12px; padding:6px 12px;
+  color:#fff; font:500 13px/1.2 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background: rgba(0,0,0,.45);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 999px;               /* 胶囊形状 */
+  box-shadow: 0 3px 12px rgba(0,0,0,.25);
+  backdrop-filter: blur(4px);         /* 玻璃感 */
+}
+.badge.left{  left:12px;  text-align:left; }
+.badge.right{ right:12px; text-align:right; }
+
+.badge .name{ font-weight:700; letter-spacing:.2px; }
+.badge .dot{ opacity:.7; margin:0 .4em; }
+.badge .num{ font-variant-numeric: tabular-nums; }
+.badge .unit{ opacity:.85; margin-left:.2em; font-weight:600; font-size:.95em; }
+
+    .juxtapose {
+      position: relative;
+      width: 100%;            /* ✅ 自适应页面宽度 */
+      max-width: 1000px;       /* ✅ 限制最大宽度，避免太占版面 */
+      aspect-ratio: 16 / 9;   /* ✅ 自动控制高度比例，不会太高 */
+      margin: 0 auto;         /* 居中显示 */
+      overflow: hidden;
+      cursor: ew-resize;      /* 鼠标样式 */
+    }
+    .jp-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;      /* ✅ 保持比例裁剪 */
+    }
+    .jp-top {
+      clip-path: inset(0 50% 0 0);
+      transition: clip-path .1s linear;
+    }
+    .slider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: #fff;
+      opacity: 0.8;
+    }
+    </style>
+    
+    <script>
+    const box = document.getElementById('jp');
+    const topImg = document.getElementById('topImg');
+    const bar = document.getElementById('bar');
+    
+    box.addEventListener('mousemove', (e) => {
+      const rect = box.getBoundingClientRect();
+      const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+      const percent = x / rect.width * 100;
+      topImg.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+      bar.style.left = percent + '%';
+    });
+    </script>
+    
+
+<!-- ===== ROI Mixer (vertically centered left panel) ===== -->
+<div id="roi" style="--w:1000px; --colL:300px; --gap:40px; --on:#22d3ee; --off:rgba(255,255,255,.35); --bg:#0b0c0f; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; color:#e5e7eb; margin:22px auto; max-width:var(--w); position:relative;">
+
+  <!-- ✅ 关键：align-items:center，让左侧在右边中间对齐 -->
+  <div class="grid" style="display:grid; grid-template-columns: var(--colL) 1fr; gap:var(--gap); align-items:center; position:relative;">
+    
+    <!-- 左侧控制区 -->
+    <div id="ctrl" style="display:flex; flex-direction:column; justify-content:center; margin-top:-10px;">
+      <div class="row" data-for="bg">
+        <label class="chip"><input type="checkbox" id="ck-bg"> <span>Background</span></label>
+        <img src="background_mask.png" class="thumb" alt="background">
+      </div>
+      <div class="row" data-for="l1">
+        <label class="chip"><input type="checkbox" id="ck-l1"> <span>Local 1</span></label>
+        <img src="mask1.png" class="thumb" alt="local1">
+      </div>
+      <div class="row" data-for="l2">
+        <label class="chip"><input type="checkbox" id="ck-l2"> <span>Local 2</span></label>
+        <img src="mask2.png" class="thumb" alt="local2">
+      </div>
+    </div>
+
+    <!-- 右侧结果图 -->
+    <div id="result" style="position:relative; border-radius:14px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,.25); display:flex; justify-content:center; align-items:center; min-height:480px; background:transparent;">
+      <img id="result-img" style="display:none; width:85%; height:auto; border-radius:10px; transition: all 0.3s ease;" alt="result">
+      <div id="placeholder" style="position:absolute; inset:0; display:flex; justify-content:center; align-items:center; color:#777; font-size:15px; font-style:italic;">No mask selected</div>
+    </div>
+
+    <!-- SVG 弯曲箭头 -->
+    <svg id="wires" style="position:absolute; inset:0; pointer-events:none;" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"></path>
+        </marker>
+      </defs>
+      <path class="wire" data-for="bg"/>
+      <path class="wire" data-for="l1"/>
+      <path class="wire" data-for="l2"/>
+    </svg>
+  </div>
+</div>
+
+<style>
+  #roi .row{
+    display:flex; align-items:center; gap:12px;
+    padding:12px; background:#1f2937; border-radius:12px; margin-bottom:16px;
+  }
+  #roi .chip{ display:flex; align-items:center; gap:8px; user-select:none; }
+  #roi input[type=checkbox]{ width:18px; height:18px; }
+  #roi .thumb{ margin-left:auto; width:120px; height:auto; border-radius:10px; display:block; }
+
+  /* 虚线箭头 */
+  #roi .wire{
+    stroke: var(--off); stroke-width: 2.5; fill: none;
+    stroke-dasharray: 6 6; marker-end: url(#arrow);
+    color: var(--off); transition: stroke .2s ease, color .2s ease, opacity .25s ease;
+    opacity: 0;
+  }
+  #roi .wire.active{ stroke: var(--on); color: var(--on); filter: drop-shadow(0 0 5px var(--on)); opacity: 1; }
+</style>
+
+<script>
+(function(){
+  const MAP = {
+    "000": null,
+    "001": "background_latent_results.png",
+    "100": "local1_result.png",
+    "010": "local2_result.png",
+    "110": "local_1pluslocal2.png",
+    "101": "local_1plusbackground.png",
+    "011": "local_2plusbackground.png",
+    "111": "final_result.png"
+  };
+
+  const l1 = document.getElementById('ck-l1');
+  const l2 = document.getElementById('ck-l2');
+  const bg = document.getElementById('ck-bg');
+  const img = document.getElementById('result-img');
+  const placeholder = document.getElementById('placeholder');
+  const app = document.getElementById('roi');
+  const wires = document.querySelectorAll('#roi .wire');
+
+  function key(){ return (l1.checked?1:0)+''+(l2.checked?1:0)+''+(bg.checked?1:0); }
+
+  function update(){
+    const src = MAP[key()];
+    const anyChecked = l1.checked || l2.checked || bg.checked;
+
+    if(src){
+      img.src = src;
+      img.style.display='block';
+      placeholder.style.display='none';
+    } else {
+      img.style.display='none';
+      placeholder.style.display='flex';
+    }
+
+    wires.forEach(p=>{
+      const f = p.getAttribute('data-for');
+      const on = anyChecked && ((f==='l1'&&l1.checked)||(f==='l2'&&l2.checked)||(f==='bg'&&bg.checked));
+      p.classList.toggle('active', on);
+    });
+  }
+
+  function layoutWires(){
+    const rows = [
+      app.querySelector('.row[data-for="bg"]'),
+      app.querySelector('.row[data-for="l1"]'),
+      app.querySelector('.row[data-for="l2"]'),
+    ];
+    const res = document.getElementById('result');
+    const svg = document.getElementById('wires');
+    const grid = app.querySelector('.grid').getBoundingClientRect();
+    svg.setAttribute('width', grid.width);
+    svg.setAttribute('height', grid.height);
+    const gridTop = grid.top + window.scrollY;
+    const gridLeft = grid.left + window.scrollX;
+    const rBox = res.getBoundingClientRect();
+    const rx = rBox.left - gridLeft;
+    const rcy = (rBox.top + rBox.bottom)/2 - gridTop;
+    const ends = [
+      {x: rx+70, y: rcy - 100},
+      {x: rx+150, y: rcy},
+      {x: rx+500, y: rcy + 100},
+    ];
+    rows.forEach((row, i)=>{
+      const rb = row.getBoundingClientRect();
+      const sx = rb.right - gridLeft;
+      const sy = (rb.top + rb.bottom)/2 - gridTop;
+      const ex = ends[i].x;
+      const ey = ends[i].y;
+      const mx = (sx + ex) / 2;
+      const bias = (i===0? -70 : (i===1? -10 : 50));
+      const my = (sy + ey)/2 + bias;
+      const d = `M ${sx} ${sy} Q ${mx} ${my} ${ex} ${ey}`;
+      svg.querySelectorAll('.wire')[i].setAttribute('d', d);
+    });
+  }
+
+  [l1,l2,bg].forEach(el=>el.addEventListener('change', update));
+  window.addEventListener('resize', ()=>{ layoutWires(); });
+  window.addEventListener('load', ()=>{ layoutWires(); update(); });
+})();
+</script>
+<!-- ===== /ROI Mixer ===== -->
 
     <section class="section" id="BibTeX" style="padding-top: 1rem; padding-bottom: 1rem;">
       <div class="container is-max-desktop content">
