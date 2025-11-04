@@ -118,7 +118,7 @@
               <div class="publication-links">
                 <!-- Paper Link -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/pdf/2507.01204" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://openreview.net/forum?id=IFjjzfkC65" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
@@ -128,7 +128,7 @@
                 </span>
                 <!-- Code Link -->
                 <span class="link-block">
-                  <a href="https://github.com/eedavidwu/LotteryCodec" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://github.com/eedavidwu/MoRIC/" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
@@ -268,19 +268,29 @@ INR-based codecs.
         </div>
       </div>
     </div>
-  </section>
 
     <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column">
             <div class="content">
-              <h2 class="title is-4 has-text-centered">Numerical results of LotteryCodec.</h2>
+              <h2 class="title is-4 has-text-centered">Numerical results of MoRIC.</h2>
+              <div class="image-container">
+                <img src="object_exp_results.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                
+                <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444;">
+                  Fig. 5: RD performance for single-object compression. (a) RD curve and BD rate on Davis. (b)
+                  RD curve and BD rate on Kodak.
+                </p>
+
+       
+              </div>
+
               <div class="image-container">
                 <img src="exp_results.png" alt="Description of the image" style="max-width: 100%; height: auto;">
                 
                 <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444;">
-                  Fig. 5: RD performance for standard image compression. (a) RD curve and BD rate on Davis. (b)
+                  Fig. 6: RD performance for standard image compression. (a) RD curve and BD rate on Davis. (b)
 RD curve and BD rate on Kodak. (c) RD curve and BD rate on CLIC2020.
                 </p>
 
@@ -294,7 +304,7 @@ RD curve and BD rate on Kodak. (c) RD curve and BD rate on CLIC2020.
     </section>
     
     <div class="juxtapose" id="jp">
-      <img class="jp-img" src="c3_0191.png"> <!-- 底图 -->
+      <img class="jp-img" src="reconstructed_32_q6.png"> <!-- 底图 -->
       <img class="jp-img jp-top" id="topImg" src="moric_0185.png"> <!-- 上层 -->
       
       <div class="slider" id="bar"></div>
@@ -305,13 +315,16 @@ RD curve and BD rate on Kodak. (c) RD curve and BD rate on CLIC2020.
           <span class="num">35.40<span class="unit">dB</span></span>
         </div>
         <div class="badge right">
-          <span class="name">C3</span><span class="dot">•</span>
-          <span class="num">0.191<span class="unit">bpp</span></span><span class="dot">•</span>
-          <span class="num">35.10<span class="unit">dB</span></span>
+          <span class="name">JEPG</span><span class="dot">•</span>
+          <span class="num">0.187<span class="unit">bpp</span></span><span class="dot">•</span>
+          <span class="num">26.03<span class="unit">dB</span></span>
         </div>
       </div>
     </div>
-    
+
+<p class="has-text-centered" style="font-size: 18px; font-style: italic; color: #555; margin-top: 0.5rem;">
+  Visual comparison between <b>MoRIC</b> and <b>JPEG</b> at similar bitrates.
+</p>
     <style>
     .labels{ position:absolute; inset:0; pointer-events:none; }
 .badge{
@@ -403,6 +416,59 @@ RD curve and BD rate on Kodak. (c) RD curve and BD rate on CLIC2020.
     <div id="result" style="position:relative; border-radius:14px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,.25); display:flex; justify-content:center; align-items:center; min-height:480px; background:transparent;">
       <img id="result-img" style="display:none; width:85%; height:auto; border-radius:10px; transition: all 0.3s ease;" alt="result">
       <div id="placeholder" style="position:absolute; inset:0; display:flex; justify-content:center; align-items:center; color:#777; font-size:15px; font-style:italic;">No mask selected</div>
+      <!-- ===== Dynamic Note Area ===== -->
+      <div id="note-text" style="
+      position:absolute; bottom:16px; left:0; right:0;
+      text-align:center; font-size:15px; color:#22d3ee;
+      font-style:italic; letter-spacing:0.3px; transition:opacity .25s ease;
+      opacity:0; pointer-events:none;">
+      </div>
+
+      <script>
+      (function(){
+      const note = document.getElementById('note-text');
+      const l1 = document.getElementById('ck-l1');
+      const l2 = document.getElementById('ck-l2');
+      const bg = document.getElementById('ck-bg');
+
+      function updateNote(){
+        const active = [];
+        if(bg.checked) active.push('Background');
+        if(l1.checked) active.push('Local 1');
+        if(l2.checked) active.push('Local 2');
+
+        if(active.length === 0){
+          note.textContent = '';
+          note.style.opacity = 0;
+          return;
+        }
+
+        // 组合成英文自然表达
+        let text = '';
+        if(active.length === 1){
+          text = `Transmitting ${active[0]} INR parameters`;
+        }else if(active.length === 2){
+          text = `Transmitting ${active[0]} and ${active[1]} INR parameters`;
+        }else{
+          text = `Transmitting ${active[0]}, ${active[1]} and ${active[2]} INR parameters`;
+        }
+
+        note.textContent = text;
+        note.style.opacity = 1;
+      }
+
+      // 监听复选框状态
+      [l1,l2,bg].forEach(el=>el.addEventListener('change', updateNote));
+      window.addEventListener('load', updateNote);
+      })();
+      </script>
+
+      <style>
+      /* 可选：轻微发光效果 */
+      #note-text{
+        text-shadow:0 0 8px rgba(34,211,238,0.4);
+      }
+      </style>
     </div>
 
     <!-- SVG 弯曲箭头 -->
@@ -522,6 +588,11 @@ RD curve and BD rate on Kodak. (c) RD curve and BD rate on CLIC2020.
 })();
 </script>
 <!-- ===== /ROI Mixer ===== -->
+<!-- ✅ 图注说明 -->
+<p class="has-text-centered" style="font-size: 18px; font-style: italic; color: #555; margin-top: 0.5rem;">
+  Interactive visualization of <b>MoRIC</b> layered compression.<br> 
+</p>
+
 
     <section class="section" id="BibTeX" style="padding-top: 1rem; padding-bottom: 1rem;">
       <div class="container is-max-desktop content">
