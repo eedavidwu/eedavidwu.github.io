@@ -6,7 +6,7 @@
   <meta name="description" content=>
   <meta name="keywords" content=>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Implicit-JSCC </title>
+  <title>W2-DeepJSCC </title>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 
 
@@ -79,12 +79,13 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 style="font-size: 39px" class="title is-1 publication-title">Leveraging Overfitting for Low-Complexity and Modality-Agnostic Joint Source-Channel Coding
+            <h1 style="font-size: 39px" class="title is-1 publication-title">Realism and Fidelity: Two Sides of a Coin in <br>
+              Deep Joint Source-Channel Coding
             </h1>
             <!--<h2 style="font-size: 25px" class="title is-1 publication-title cvpr">ICASSP 2024</h2>-->
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                Haotian Wu, Gen Li, Pier Luigi Dragotti, and Deniz Gündüz</a></span>
+                Haotian Wu, Weichen Wang, Di You, Pier Luigi Dragotti, and Deniz Gündüz</a></span>
             </div>
             <div class="is-size-6 has-text-grey" style="margin-top: 0.3em;">
               Imperial College London, Department of Electrical and Electronic Engineering
@@ -129,7 +130,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              This paper introduces Implicit-JSCC, a novel overfitted joint source–channel coding paradigm that directly optimizes channel symbols and a lightweight neural decoder for each source. This instance-specific strategy eliminates the need for training datasets or pre-trained models, enabling a storage-free, modality-agnostic solution. As a low-complexity alternative, Implicit-JSCC achieves efficient image transmission with around 1000x lower decoding complexity, using as few as 607 model parameters and 641 multiplications per pixel. This overfitted design inherently addresses source generalizability and achieves state-of-the-art results in the high SNR regimes, underscoring its promise for future communication systems, especially streaming scenarios where one-time offline encoding supports multiple online decoding.
+              Deep joint source-channel coding (DeepJSCC) offers a promising approach to improving transmission efficiency by jointly leveraging source semantics and channel conditions. While prior work has focused on fidelity under varying channel conditions, recent diffusion-based approaches improve perceptual quality at the cost of high complexity and limited adaptability. In this work, we reveal that fidelity and perceptual realism can be unified in an adaptive DeepJSCC scheme through SNR-aware optimization, eliminating the need for separate models. Specifically, we propose \( \text{W}^2 \)-DeepJSCC, a unified, channel-adaptive framework that dynamically balances fidelity and perceptual realism based on channel conditions. It introduces two key innovations: a saliency-guided perception–fidelity adapter (SG-PFA) and wavelet Wasserstein distortion (WA-WD). SG-PFA enables a single model to adapt across varying channel conditions, preserving semantic realism under poor channel conditions while enhancing fidelity under good ones. WA-WD, inspired by foveal and peripheral vision, provides fine-grained control in the wavelet domain. As a plug-and-play module, \( \text{W}^2 \)-DeepJSCC integrates seamlessly with existing DeepJSCC architectures. Experiments show that \( \text{W}^2 \)-DeepJSCC significantly outperforms baselines in perceptual metrics while maintaining strong fidelity at high SNRs. Prototype verification further highlights its advantages, demonstrating that the proposed method delivers competitive fidelity and perception with low complexity, making it a promising alternative for future deployments. Additionally, a user study further confirms that WA-WD aligns more closely with human perception than existing metrics.
 
             </p>
           </div>
