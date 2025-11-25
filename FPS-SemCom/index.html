@@ -1,88 +1,210 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
   <meta charset="utf-8">
-  <meta name="description" content=>
-  <meta name="keywords" content="Diffusion Posterior Sampling with Channel
-  Feedback for Adaptive Semantic Communication">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FPS-SemCom</title>
+  <link rel="icon" type="image/jpg" href="./icon_dice_new.jpg">
+  <title>Diffusion Posterior Sampling with Channel Feedback for Adaptive Semantic Communication</title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8RM5LWFPPP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
+
     gtag('config', 'G-8RM5LWFPPP');
   </script>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
 
-  <!-- JS (keep jQuery if your index.js needs it) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 
+  <!-- 页面通用样式 -->
   <style>
-    .section { padding-top: 1rem; padding-bottom: 1rem; }
-    .image-container { text-align: center; margin-bottom: 2rem; }
-    .centered-image { display: block; margin: 0 auto; max-width: 100%; height: auto; }
-    .caption { margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem; }
+    .section {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .image-container {
+      text-align: center;
+      /* Center aligns inline content within the container */
+    }
+
+    .centered-image {
+      display: block;
+      /* Ensures the image behaves as a block element */
+      margin: 0 auto;
+      /* Auto margins horizontally center the image */
+      max-width: 100%;
+      /* Ensures the image does not exceed its container's width */
+      height: auto;
+      /* Allows the image to maintain its aspect ratio */
+    }
+
+    .video-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .video-container .video-small {
+      width: 50%;
+    }
+
+    .video-container .video-large {
+      width: 90%;
+    }
+
+    /* 自定义 Block slider 的颜色 */
+    #block-slider::-webkit-slider-runnable-track {
+      background: #dbeafe;
+      /* 浅蓝轨道 */
+      height: 6px;
+      border-radius: 999px;
+    }
+
+    #block-slider::-webkit-slider-thumb {
+      background: #2563eb;
+      /* 深蓝色滑块 */
+      border: 2px solid #ffffff;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      margin-top: -6px;
+      /* 让 thumb 垂直居中轨道 */
+    }
+
+    /* Firefox */
+    #block-slider::-moz-range-track {
+      background: #dbeafe;
+      height: 6px;
+      border-radius: 999px;
+    }
+
+    #block-slider::-moz-range-thumb {
+      background: #2563eb;
+      border: 2px solid #ffffff;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+    }
   </style>
+
 </head>
+
 <body>
 
-  <!-- Hero -->
+
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 style="font-size: 39px" class="title is-1 publication-title">
-              Diffusion Posterior Sampling with Channel
-              Feedback for Adaptive Semantic Communication
-            </h1>
+          <div class="column">
+            <!-- Centered Icon + Title using Flexbox -->
+            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+              <!-- 图标 -->
+              <img src="./icon_dice_new.jpg" alt="icon" style="height: 5em; margin-right: 20px;">
 
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">Haotian Wu</span>
+              <!-- 包裹 h1 的容器，设置宽度并居中文本 -->
+              <div style="text-align: center;">
+                <h1 style="font-size: 31px; line-height: 1.2; margin: 0;" class="title is-1 publication-title">
+                  Diffusion Posterior Sampling with Channel Feedback for Adaptive Semantic Communication
+                </h1>
+              </div>
             </div>
-            <div class="is-size-6 has-text-grey" style="margin-top: 0.3em;">
-              Imperial College London, Department of Electrical and Electronic Engineering
+
+            <!-- Authors -->
+            <div class="publication-authors has-text-centered" style="margin-top: 1rem;">
+              <p class="is-size-5" style="margin-bottom: 0.25rem;">
+                <span class="author-block">Bingxuan Xu<sup>*</sup></span>,
+                <span class="author-block">Haotian Wu<sup>†‡</sup></span>,
+                <span class="author-block">Xiaodong Xu<sup>*</sup></span>,
+                and <span class="author-block">Deniz Gündüz<sup>†</sup></span>
+              </p>
+              <p class="is-size-6" style="color: #666; margin-bottom: 0.25rem;">
+                *State Key Laboratory of Networking and Switching Technology, BUPT, Beijing, China
+              </p>
+              <p class="is-size-6" style="color: #666; margin-bottom: 0.25rem;">
+                ‡ Project leader
+              </p>
+              <p class="is-size-8" style="color: #666; margin-bottom: 0.25rem;">
+                † Imperial College London
+              </p>
             </div>
-            <div class="column has-text-centered" style="margin-top: 0.75rem;">
+
+            <!-- Links -->
+            <div class="has-text-centered">
               <div class="publication-links">
+                <!-- Paper Link -->
                 <span class="link-block">
-                  <!-- 移除 disabled，手动加上禁用效果，保持黑色 -->
-                  <button class="external-link button is-normal is-rounded is-dark" style="cursor: not-allowed;">
-                    <span class="icon"><i class="fab fa-github"></i></span>
-                    <span>Code (soon)</span>
-                  </button>
+                  <a href="javascript:void(0);" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+
+                </span>
+                <!-- Code Link -->
+                <span class="link-block">
+                  <a href="javascript:void(0);" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                  <a href="javascript:void(0);" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-globe"></i>
+                    </span>
+                    <span>Other resources</span>
+                  </a>
                 </span>
               </div>
             </div>
 
 
-
-
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Abstract -->
-  <section class="section">
+  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
     <div class="container is-max-desktop">
+      <!-- Abstract. -->
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              In this work, we propose a 
+              Diffusion-aided deep joint source–channel coding (DeepJSCC) has recently shown strong potential for semantic
+              communication (SemCom), offering high perceptual quality under challenging wireless conditions. However, existing
+              diffusion-based JSCC schemes lack adaptivity in three key aspects: (i) task-specific fine-tuning, (ii) channel and
+              rate adaptation, and (iii) instance-level generalization. We propose FPS-SemCom, a feedback-guided diffusion posterior
+              sampling framework that unifies posterior-based decoding and feedback-driven progressive encoding. FPS-SemCom achieves
+              instance-, channel-, and rate-adaptive image transmission through a training-free sampler and a lightweight,
+              feedback-guided linear encoder. Built entirely upon frozen pre-trained diffusion models, FPS-SemCom refines the
+              posterior toward optimal reconstruction without retraining, achieving robust channel adaptability and semantic
+              consistency. Remarkably, our results reveal that under strong generative priors, even a simple linear encoder achieves
+              competitive performance, highlighting the power of the diffusion prior. Extensive experiments on the pre-trained Stable
+              Diffusion model show that FPS-SemCom outperforms the existing diffusion-based JSCC baseline, achieving up to a 33.3%
+              improvement in LPIPS and a 1.56 dB gain in MS-SSIM.
             </p>
           </div>
         </div>
@@ -90,46 +212,159 @@
     </div>
   </section>
 
-  <!-- Method figure -->
-  <section class="section">
+  <!-- ✅ 插入图片 -->
+  <div class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="container is-max-desktop has-text-centered">
+      <img src="1.png" alt="Middle illustration" style="max-width: 100%; height: auto;">
+      <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444; margin-top: 0.5rem;">
+        Fig. 1: Illustration of the FPS framework.
+      </p>
+    </div>
+  </div>
+  <!-- ✅ 插入图片结束 -->
+
+  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
     <div class="container is-max-desktop">
+      <h2 class="title is-4 has-text-centered">
+        Performance Comparison
+      </h2>
+  
+      <!-- Row 1: Fig 2 (a), Fig 2 (b) -->
       <div class="columns is-centered">
-        <div class="column">
-          <div class="content">
-            <h2 class="title is-4 has-text-centered">C-ReLIC</h2>
-            <p>
-              We employ a phase-aware PnP framework built on LDMs. <strong>Top left</strong>: Overview of the sampling iterations (from T to 0). <strong>Top right</strong>: Phase-wise weight schedules. <strong>Bottom</strong>: <em>Phase I</em>: ACLA stabilizes early steps using a reference from a codec-agnostic blind restorer. <em>Phase II</em>: Bi-LOC decouples and recomposes measurement and detail in the latent space, ensuring data consistency. <em>Phase III</em>: PAP utilizes a no-reference perceptual score for late-stage polishing, aligned with human preference.
+        <div class="column is-half">
+          <div class="image-container">
+            <img src="fig2_a.png" style="width:100%; border-radius:8px;">
+            <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444; margin-top: 0.5rem;">
+              Fig. 2(a): LPIPS vs. SNR
             </p>
-
-            <figure class="image-container">
-              <img src="phase.png" alt="Phase-aware PnP strategy: schedule and three phases" class="centered-image">
-              <figcaption class="has-text-centered caption">
-                Fig. 1 Illustration of phase-aware PnP strategy for CIR sampling.
-              </figcaption>
-            </figure>
-
+          </div>
+        </div>
+  
+        <div class="column is-half">
+          <div class="image-container">
+            <img src="fig2_b.png" style="width:100%; border-radius:8px;">
+            <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444; margin-top: 0.5rem;">
+              Fig. 2(b): MS-SSIM vs. SNR
+            </p>
           </div>
         </div>
       </div>
+  
+      <!-- Row 2: Fig 3 (a), Fig 3 (b) -->
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <div class="image-container">
+            <img src="fig3_a.png" style="width:100%; border-radius:8px;">
+            <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444; margin-top: 0.5rem;">
+              Fig. 3(a): LPIPS vs. N
+            </p>
+          </div>
+        </div>
+  
+        <div class="column is-half">
+          <div class="image-container">
+            <img src="fig3_b.png" style="width:100%; border-radius:8px;">
+            <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444; margin-top: 0.5rem;">
+              Fig. 3(b): PSNR vs. N
+            </p>
+          </div>
+        </div>
+      </div>
+  
     </div>
-  </section>ß
+  </section>
+  
 
+  <!-- Block size vs Reconstruction slider -->
+  <section class="section">
+    <div class="container is-max-desktop has-text-centered">
 
+      <h2 class="title is-4">The number of Blocks N vs. Reconstruction</h2>
 
-  <!-- BibTeX -->
-  <section class="section" id="BibTeX">
+      <!-- 显示当前 N 值 -->
+      <p style="margin-bottom: 0.5rem;">
+        <strong>N = <span id="block-label">10</span></strong>
+      </p>
+
+      <!-- 进度条（0~9 对应 10 个 N） -->
+      <input id="block-slider"
+             class="slider is-fullwidth is-info"
+             type="range"
+             min="0"
+             max="9"
+             step="1"
+             value="0"
+             style="margin-bottom: 0.75rem;">
+
+      <!-- 显示刻度对应的 N（仅做标注，不可点击） -->
+      <div style="display:flex; justify-content:space-between; font-size:0.8rem; color:#666;">
+        <span>10</span>
+        <span>100</span>
+        <span>300</span>
+        <span>500</span>
+        <span>700</span>
+        <span>1000</span>
+        <span>1300</span>
+        <span>1600</span>
+        <span>1800</span>
+        <span>2048</span>
+      </div>
+
+      <!-- 图片显示区域 -->
+      <div style="margin-top:1.2rem; max-width:1200px; margin-left:auto; margin-right:auto;">
+        <!-- 默认显示 N=10 对应的图 -->
+        <img id="block-img"
+             src="iter_10.png"
+             alt="Reconstruction for N=10"
+             style="width:1000px; height:auto; border-radius:10px;">
+      </div>
+
+    </div>
+  </section>
+  <section class="section" id="BibTeX" style="padding-top: 1rem; padding-bottom: 1rem;">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@article{C-ReLIC,
-  title={Decomposing the Latent Space: A Phase-aware Plug-and-Play Approach for Universal Compressed Image Restoration},
-  author={You, Di and Wu, Haotian and Dragotti, Pier Luigi},
-  journal={arXiv},
-  year={2025}
-}</code></pre>
+      <pre>
+  <code>
+  @article{FPS-SemCom,
+  title={Diffusion Posterior Sampling with Channel Feedback for Adaptive Semantic Communication},
+  author={Bingxuan xu, Haotian Wu, Xiaodong Xu and Deniz Gündüz},
+  journal={ArXiv},
+  year={2026}
+  }
+  </code>
+  </pre>
     </div>
   </section>
 
-  <!-- Footer -->
+  <script>
+    // 对应的 N 列表
+    const N_VALUES = [10, 100, 300, 500, 700, 1000, 1300, 1600, 1800,2048];
+
+    // 图片文件命名规则：iter_10.png, iter_100.png, ...
+    function getImageSrcFromN(n) {
+      return `iter_${n}.png`;
+    }
+
+    const slider = document.getElementById('block-slider');
+    const label = document.getElementById('block-label');
+    const img = document.getElementById('block-img');
+
+    function updateFromSlider() {
+      const idx = parseInt(slider.value, 10); // 0 ~ 8
+      const N = N_VALUES[idx];
+      label.textContent = N;
+      img.src = getImageSrcFromN(N);
+      img.alt = `Reconstruction for N=${N}`;
+    }
+
+    // 初始化
+    updateFromSlider();
+
+    // 当拖动或点击进度条时更新图片
+    slider.addEventListener('input', updateFromSlider);
+  </script>
+
   <footer class="footer">
     <div class="container">
       <div class="columns is-centered">
@@ -138,7 +373,8 @@
             <p>
               This webpage template is adapted from
               <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>,
-              under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
+              under a
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
             </p>
           </div>
         </div>
@@ -147,4 +383,8 @@
   </footer>
 
 </body>
+
 </html>
+
+
+
