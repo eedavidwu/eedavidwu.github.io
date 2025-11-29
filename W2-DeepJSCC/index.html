@@ -94,7 +94,7 @@
               <div class="publication-links">
                 <!-- PDF Link. -->
                 <span class="link-block">
-                  <a href="https://openreview.net/"
+                  <a href="https://openreview.net/forum?id=5pcWOzIwCr#discussion/"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -102,7 +102,7 @@
                     <span>Paper</span>
                   </a>
                 <span class="link-block">
-                  <a href="https://github.com/"
+                  <a href="https://github.com/eedavidwu/"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -142,16 +142,83 @@
     </div>
   </section>
 
+  <section class="moric-quote" lang="zh-CN" aria-label="MoRIC">
+    <style>
+      .moric-quote {
+        margin: 2rem auto;
+        padding: 1.5rem;
+        max-width: 900px;
+        background: #f2f2f2;
+        border-left: 4px solid #e5a04b;
+        font-family:
+          "Noto Serif SC","Source Han Serif SC","Songti SC","STSong",
+          "PingFang SC","Hiragino Sans GB","Noto Serif CJK SC",serif;
+        font-style: italic;
+        color: #333;
+        line-height: 1.9;
+        font-size: clamp(1rem, 1.8vw, 1.25rem);
+      }
+      .moric-quote blockquote {
+        text-align: center;
+        margin: 0;
+      }
+      
+
+      .moric-quote cite {
+        display: block;
+        text-align: right;
+        font-style: normal;
+        color: #666;
+        margin-top: 0.6rem;
+      }
+    </style>
+  
+    <blockquote>
+      <p class="hero-question">
+             Can a single DeepJSCC model adaptively balance <br/>
+      fidelity and realism across various channel conditions?
+    </p>
+
+    </blockquote>
+  </section>
+
   <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column">
           <div class="content">
-            <h2 class="title is-4 has-text-centered">From AE-based DeepJSCC codec to overfitted codec</h2>
+            <h2 class="title is-4 has-text-centered">Performance of \( \text{W}^2 \)-DeepJSCC.</h2>
+  
             <div class="image-container">
-              <img src="paradigm.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+              <img src="vis_example.png" alt="Visual comparison" style="max-width: 100%; height: auto;">
+  
+              <p class="has-text-centered" 
+                 style="margin-top: 0.7rem; font-weight: 600; font-size: 1rem; max-width: 90%; margin-left: auto; margin-right: auto;">
+  
+                Fig. 1 Visual comparison between different schemes when SNR = 0 dB and \( R = 1/24 \). 
+                \( \text{W}^2 \)-DeepJSCC achieves the best perceptual realism, 
+                closely matching the original image.
+              </p>
+  
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <h2 class="title is-4 has-text-centered">Proposed WA-WD for all DeepJSCC schemes.</h2>
+            <div class="image-container">
+              <img src="Fig_2_wawd.png" alt="Description of the image" style="max-width: 100%; height: auto;">
               <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.0rem;">
-                Fig. 1 Operational paradigm and corresponding performance.
+                Fig. 2 A perceptually aligned optimization objective inspired by foveal/peripheral vision, providing fine-grained control over fidelity-realism in the wavelet domain.
+
               </p>
             </div>
            
@@ -166,11 +233,11 @@
       <div class="columns is-centered">
         <div class="column">
           <div class="content">
-            <h2 class="title is-4 has-text-centered">Towards ultra low-complexity and modality-agnostic DeepJSCC</h2>
+            <h2 class="title is-4 has-text-centered">Proposed Saliency-Guided Perception–Fidelity Adapter.</h2>
             <div class="image-container">
-              <img src="Implicit_JSCC.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+              <img src="Fig_3_illu_sigma.png" alt="Description of the image" style="max-width: 65%; height: auto;">
               <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.0rem;">
-                Fig. 2 Architecture of Implicit-JSCC. Left: encoding process of the transmitter; Right: decoding process of the receiver.
+                Fig. 3 An SNR-aware modulation mechanism for the proposed loss function that preserves perceptual realism at low SNR while gradually shifting toward high-fidelity reconstruction at high SNR.
               </p>
             </div>
            
@@ -179,35 +246,36 @@
       </div>
     </div>
   </section>
-    
+  
+
     <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column">
             <div class="content">
-              <h2 class="title is-4 has-text-centered">Numerical results of Implciit-JSCC across various scenarios</h2>
+              <h2 class="title is-4 has-text-centered">Numerical results across various scenarios</h2>
               <div class="image-container">
-                <img src="kodak_results.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                <img src="main_results.png" alt="Description of the image" style="max-width: 100%; height: auto;">
                 <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.0rem;">
-                  Fig. 3 Experimental resutls on Kodak dataset.
+                  Fig. 4 Experimental resutls on Kodak dataset.
                 </p>
               </div>
               <div class="image-container">
-                <img src="vis_kodak_1.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                <img src="wawd_bar.png" alt="Description of the image" style="max-width: 100%; height: auto;">
                 <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.0rem;">
-                  Fig. 4 Visulization on Kodak dataset.
+                  Fig. 5 User study to evaluate the human preference.
                 </p>
               </div>
               <div class="image-container">
-                <img src="clic2020.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                <img src="vis_1.png" alt="Description of the image" style="max-width: 100%; height: auto;">
                 <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.0rem;">
-                  Fig. 5 Experimental resutls on CLIC2020 dataset.
+                  Fig. 6 Visual comparisons at SNR = 0 dB and R =1/24, where our method demonstrates clear advantages across the entire image. Additional examples are available in the paper.
                 </p>
               </div>
               <div class="image-container">
-                <img src="Audio_MRI.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                <img src="Prototype.png" alt="Description of the image" style="max-width: 100%; height: auto;">
                 <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.0rem;">
-                  Fig. 6 Other modality: (a). Audio and (b). MRI data.
+                  Fig. 7 Prototype verification under different transmitter power for Kodak dataset, where the bandwidth ratio is 1/2. Proposed method offers a clear advantage, such as textures on trees and even interior details beneath the river surface that are lost in baseline reconstructions.
                 </p>
               </div>
             </div>
@@ -217,40 +285,16 @@
         </div>
       </div>
     </section>
-
-    <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column">
-            <div class="content">
-              <h2 class="title is-4 has-text-centered">Visual comparisons</h2>
-              <div class="image-container">
-                <img src="vis_clic.png" alt="Description of the image" style="max-width: 100%; height: auto;">
-                <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.0rem;">
-                  Fig. 7 Comparisons on CLIC2020 dataset, SNR=0dB.
-                </p>
-              </div>
-            
-           
-            </div>
-    
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
 
     <section class="section" id="BibTeX" style="padding-top: 1rem; padding-bottom: 1rem;">
       <div class="container is-max-desktop content">
         <h2 class="title">BibTeX</h2>
         <pre>
 <code>
-  @article{ImplicitJSCC,
-    title={Leveraging Overfitting for Low-Complexity Deep Joint Source-Channel Coding},
-    author={Haotian Wu, Pier Luigi Dragotti, and Deniz Gündüz},
-    journal={ArXiv},
-    year={2025}
+  @inproceedings{wu2025realism,
+    title={Realism and Fidelity: Two Sides of a Coin in Deep Joint Source-Channel Coding},
+    author={Wu, Haotian and Wang, Weichen and You, Di and Dragotti, Pier Luigi and Gunduz, Deniz},
+    booktitle={NeurIPS 2025 Workshop: AI and ML for Next-Generation Wireless Communications and Networking}
   }
 </code>
 </pre>
