@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content=>
+  <meta name="keywords" content=>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="./icon_dice.png">
+  <title>ReReIC </title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8RM5LWFPPP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-8RM5LWFPPP');
+  </script>
+
+  <!-- <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet"> -->
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+  <!-- <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"> -->
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <style>
+    .section {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  </style>
+  <style>
+    .image-container {
+  text-align: center; /* Center aligns inline content within the container */
+}
+
+    .centered-image {
+      display: block; /* Ensures the image behaves as a block element */
+      margin: 0 auto; /* Auto margins horizontally center the image */
+      max-width: 100%; /* Ensures the image does not exceed its container's width */
+      height: auto; /* Allows the image to maintain its aspect ratio */
+    }
+    .video-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .video-container .video-small {
+      width: 50%; /* 75% of 45% = 33.75% */
+    }
+    .video-container .video-large {
+      width: 90%;
+    }
+
+  </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  .interactive-figure-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .interactive-figure-full {
+    width: 100%;
+    display: block;
+    height: auto;
+  }
+
+  /* 只覆盖中间大图区域 */
+  .interactive-compare-box {
+    position: absolute;
+    left: 13.38%;
+    top: 0.0%;
+    width: 73.44%;
+    height: 100%;
+    overflow: hidden;
+    user-select: none;
+    cursor: ew-resize;
+  }
+
+  /* 两张图完全重合，大小固定 */
+  .interactive-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .interactive-layer img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    display: block;
+    pointer-events: none;
+  }
+
+  /* 左边显示 ReReIC */
+  .interactive-rereic {
+    clip-path: inset(0 50% 0 0);
+    -webkit-clip-path: inset(0 50% 0 0);
+    z-index: 2;
+  }
+
+  /* 右边显示 HiFiC */
+  .interactive-hific {
+    clip-path: inset(0 0 0 50%);
+    -webkit-clip-path: inset(0 0 0 50%);
+    z-index: 1;
+  }
+
+  /* 中间虚线 */
+  .interactive-divider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .interactive-divider-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-1px);
+    border-left: 2px dashed rgba(255,255,255,0.95);
+  }
+
+  .interactive-label-left,
+  .interactive-label-right {
+    position: absolute;
+    bottom: 14px;
+    background: rgba(255,255,255,0.92);
+    color: #111;
+    font-size: 26px;
+    line-height: 1.1;
+    padding: 6px 14px;
+    border: 1px solid #bbb;
+    z-index: 6;
+  }
+
+  .interactive-label-left {
+    left: 14px;
+  }
+
+  .interactive-label-right {
+    right: 14px;
+  }
+
+  @media (max-width: 768px) {
+    .interactive-label-left,
+    .interactive-label-right {
+      font-size: 18px;
+      padding: 4px 10px;
+    }
+  }
+</style>
+
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column">
+            <!-- Centered Icon + Title using Flexbox -->
+            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+              <!-- 图标 -->
+              <img src="./icon_dice.png" alt="icon"
+                   style="height: 10em; margin-right: 20px;">
+              
+              <!-- 包裹 h1 的容器，设置宽度并居中文本 -->
+              <div style="text-align: center;">
+                <h1 style="font-size: 31px; line-height: 1.2; margin: 0;"
+                    class="title is-1 publication-title">
+                    Frequency-Aware Perceptual Optimization for
+                    Low-Complexity Implicit Image Compression
+                </h1>
+              </div>
+            </div>
+  
+            <!-- Authors -->
+            <div class="publication-authors has-text-centered" style="margin-top: 1rem;">
+              <p class="is-size-5" style="margin-bottom: 0.25rem;">
+                <span class="author-block"><a href="https://eedavidwu.github.io/">Haotian Wu</a><sup>1,2</sup></span>,
+
+                <span class="author-block">Gen Li<sup>2</sup></span>,
+                <span class="author-block"><a href="https://dy547.github.io/">Di You</a><sup>2</sup></span>,
+                <span class="author-block"><a href="https://profiles.imperial.ac.uk/p.dragotti">Pier Luigi Dragotti</a><sup>2</sup></span>,
+                 <span class="author-block"><a href="https://profiles.imperial.ac.uk/d.gunduz">Deniz Gündüz</a><sup>2</sup></span>
+              </p>
+
+              
+              <p class="is-size-6" style="color: #666; margin-bottom: 0.25rem;">
+                1. Zhejiang University 2. Imperial College London
+              </p>
+              <p class="is-size-5" style="color: #444; font-weight: 400; margin-bottom: 0;">
+                <strong>International Conference on Machine Learning (ICML) 2026</strong>
+              </p>
+            </div>
+  
+            <!-- Links -->
+            <div class="has-text-centered">
+              <div class="publication-links">
+                <!-- Paper Link -->
+                <span class="link-block">
+                  <a href="https://icml.cc/virtual/2026/poster/60556" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+
+                </span>
+                <!-- Code Link -->
+                <span class="link-block">
+                  <a href="https://eedavidwu.github.io/Re2IC/" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                  <a href="https://github.com/"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-globe                    "></i>
+                  </span>
+                  <span>Other resources</span>
+                </a>
+                </span>
+              </div>
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              We propose a frequency-aware perceptual optimization framework for low-complexity image compression, realized as a <i><b>Re</b>alism-enhanced <b>Re</b>gion-based <b>I</b>mplicit <b>C</b>odec</i> (Re<sup>2</sup>IC). Re<sup>2</sup>IC models visual perception via saliency-guided region partitioning and local–global perceptual modulation. To enhance realism under complexity constraints, we introduce wavelet–Wasserstein distortion (WA-WD), a frequency-decomposed perceptual distortion that balances fidelity and realism through subband-aware modeling and provides a more reliable approximation than standard Wasserstein distortion. Together, these designs enable fine-grained spatial–spectral optimization, allowing Re<sup>2</sup>IC to achieve superior rate–perception trade-offs, outperforming generative codecs such as HiFiC while using less than 1% of their decoding cost. Extensive experiments demonstrate state-of-the-art perceptual performance among overfitted codecs. Beyond compression, WA-WD serves as a standalone, tunable perceptual metric with strong alignment to human preference (Pearson 94.6%, Spearman 92.3%) and competitive performance across multiple IQA benchmarks.
+            </p>
+          </div>
+          <!-- <img src="static/architecture.png"> -->
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  <div class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="container is-max-desktop has-text-centered">
+      <div class="interactive-figure-wrapper">
+        <!-- 整张图：左右小图保持固定 -->
+        <img src="kodak_vis_pair_3.png" alt="Full comparison figure" class="interactive-figure-full">
+  
+        <!-- 中间大图区域：左 ReReIC，右 HiFiC -->
+        <div class="interactive-compare-box" id="interactiveCompareBox">
+          <div class="interactive-layer interactive-hific" id="interactiveHiFiC">
+            <img src="kodim24HIFIC.png" alt="HiFiC center image">
+          </div>
+  
+          <div class="interactive-layer interactive-rereic" id="interactiveReReIC">
+            <img src="kodim24WAWD.png" alt="ReReIC center image">
+          </div>
+  
+          <div class="interactive-divider" id="interactiveDivider">
+            <div class="interactive-divider-line"></div>
+          </div>
+  
+          <div class="interactive-label-left">ReReIC</div>
+          <div class="interactive-label-right">HiFiC</div>
+        </div>
+      </div>
+  
+      <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444; margin-top: 0.5rem;">
+        Fig. 1: Interactive comparison between ReReIC and HiFiC.
+      </p>
+    </div>
+  </div>
+
+
+  <div class="juxtapose" id="jp">
+    <img class="jp-img" src="C3WDs.png"> <!-- 底图 -->
+    <img class="jp-img jp-top" id="topImg" src="WA_WD.png"> <!-- 上层 -->
+    
+    <div class="slider" id="bar"></div>
+    <div class="labels">
+      <div class="badge left">
+        <span class="name">WA-WD</span><span class="dot">•</span>
+        <span class="num">0.129<span class="unit">bpp</span></span><span class="dot">•</span>
+        <!-- <span class="num">35.40<span class="unit">dB</span></span> -->
+      </div>
+      <div class="badge right">
+        <span class="name">C3-WDs</span><span class="dot">•</span>
+        <span class="num">0.130<span class="unit">bpp</span></span><span class="dot">•</span>
+        <!-- <span class="num">26.03<span class="unit">dB</span></span> -->
+      </div>
+    </div>
+  </div>
+
+<p class="has-text-centered" style="font-size: 18px; font-style: italic; color: #555; margin-top: 0.5rem;">
+  Fig. 2: Visual perceptual comparison between <b>WA-WD</b> and <b>C3-WDs</b> at similar bitrates.
+</p>
+
+
+
+
+ 
+  
+
+  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <h2 class="title is-4 has-text-centered has-text-weight-semibold">
+              Illustration of <span class="has-text-primary">WA-WD</span>
+            </h2>
+            <div class="image-container">
+              <img src="Wave_WD.png" alt="Description of the image" style="max-width: 85%; height: auto;">
+              <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444;">
+                Fig. 3: Paired images are processed by a VGG backbone and DWT, decomposing features into orthogonal subbands for multi-scale WA-WD estimation. 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+
+
+    <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column">
+            <div class="content">
+              <h2 class="title is-4 has-text-centered">Human rating results and decoder complexity on <em>Kodak</em> </h2>
+              <div class="image-container">
+                <img src="Rating_kodak_01.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                <p class="has-text-centered" style="margin-top: 0.5rem; font-weight: bold; font-size: 1.2rem;">
+                  <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444;">
+                    Fig. 4: Left: Evaluation of different methods vs. bit rate. Right: Decoding complexity at the middle bit-rate regime.
+                  </p>
+                </p>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column">
+            <div class="content">
+              <h2 class="title is-4 has-text-centered">Numerical results of ReReIC.</h2>
+              <div class="image-container">
+                <img src="comparison_kodak_all_in_one_01.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                
+                <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444;">
+                  Fig. 5: Rate-distortion and -perception curves on Kodak
+                </p>
+
+       
+              </div>
+
+              <div class="image-container">
+                <img src="comparison_clic2020_all_in_one_01.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                
+                <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444;">
+                  Fig. 6: Rate-distortion and -perception curves on CLIC2020
+                </p>
+
+       
+              </div>
+
+              <div class="image-container">
+                <img src="IQA.png" alt="Description of the image" style="max-width: 100%; height: auto;">
+                
+                <p class="has-text-centered" style="font-size: 20px; font-style: italic; color: #444;">
+                  Fig. 7: Evaluation of WA-WD: (a) performance across IQA datasets; (b) human-rating prediction.
+                </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <style>
+    .labels{ position:absolute; inset:0; pointer-events:none; }
+.badge{
+  position:absolute; bottom:12px; padding:6px 12px;
+  color:#fff; font:500 13px/1.2 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background: rgba(0,0,0,.45);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 999px;               /* 胶囊形状 */
+  box-shadow: 0 3px 12px rgba(0,0,0,.25);
+  backdrop-filter: blur(4px);         /* 玻璃感 */
+}
+.badge.left{  left:12px;  text-align:left; }
+.badge.right{ right:12px; text-align:right; }
+
+.badge .name{ font-weight:700; letter-spacing:.2px; }
+.badge .dot{ opacity:.7; margin:0 .4em; }
+.badge .num{ font-variant-numeric: tabular-nums; }
+.badge .unit{ opacity:.85; margin-left:.2em; font-weight:600; font-size:.95em; }
+
+    .juxtapose {
+      position: relative;
+      width: 100%;            /* ✅ 自适应页面宽度 */
+      max-width: 1000px;       /* ✅ 限制最大宽度，避免太占版面 */
+      aspect-ratio: 16 / 9;   /* ✅ 自动控制高度比例，不会太高 */
+      margin: 0 auto;         /* 居中显示 */
+      overflow: hidden;
+      cursor: ew-resize;      /* 鼠标样式 */
+    }
+    .jp-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;      /* ✅ 保持比例裁剪 */
+    }
+    .jp-top {
+      clip-path: inset(0 50% 0 0);
+      transition: clip-path .1s linear;
+    }
+    .slider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: #fff;
+      opacity: 0.8;
+    }
+    </style>
+    
+    <script>
+    const box = document.getElementById('jp');
+    const topImg = document.getElementById('topImg');
+    const bar = document.getElementById('bar');
+    
+    box.addEventListener('mousemove', (e) => {
+      const rect = box.getBoundingClientRect();
+      const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+      const percent = x / rect.width * 100;
+      topImg.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+      bar.style.left = percent + '%';
+    });
+    </script>
+    
+
+
+    <section class="section" id="BibTeX" style="padding-top: 1rem; padding-bottom: 1rem;">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre>
+<code>
+  @article{ReReIC,
+    title={Frequency-Aware Perceptual Optimization for Low-Complexity Implicit Image Compression},
+    author={Haotian Wu, Gen Li, Di You, Pier Luigi Dragotti and Deniz Gündüz},
+    journal={Proceedings of the 43<sup>rd</sup> International Conference on Machine Learning, Seoul, South Korea},
+    year={2026}
+  }
+</code>
+</pre>
+      </div>
+    </section>
+
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                This webpage template is adapted from <a
+                  href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>,
+                under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    </div>
+
+    <script>
+      (function () {
+        const box = document.getElementById("interactiveCompareBox");
+        const rereicLayer = document.getElementById("interactiveReReIC");
+        const hificLayer = document.getElementById("interactiveHiFiC");
+        const divider = document.getElementById("interactiveDivider");
+    
+        if (!box || !rereicLayer || !hificLayer || !divider) return;
+    
+        function updateComparison(clientX) {
+          const rect = box.getBoundingClientRect();
+          let x = clientX - rect.left;
+          x = Math.max(0, Math.min(x, rect.width));
+    
+          const percent = (x / rect.width) * 100;
+    
+          /* 左边显示 ReReIC: 保留左边 [0, percent] */
+          rereicLayer.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+          rereicLayer.style.webkitClipPath = `inset(0 ${100 - percent}% 0 0)`;
+    
+          /* 右边显示 HiFiC: 保留右边 [percent, 100] */
+          hificLayer.style.clipPath = `inset(0 0 0 ${percent}%)`;
+          hificLayer.style.webkitClipPath = `inset(0 0 0 ${percent}%)`;
+    
+          divider.style.left = percent + "%";
+        }
+    
+        box.addEventListener("mousemove", function (e) {
+          updateComparison(e.clientX);
+        });
+    
+        box.addEventListener("mouseenter", function (e) {
+          updateComparison(e.clientX);
+        });
+    
+        box.addEventListener("touchstart", function (e) {
+          updateComparison(e.touches[0].clientX);
+        }, { passive: true });
+    
+        box.addEventListener("touchmove", function (e) {
+          updateComparison(e.touches[0].clientX);
+        }, { passive: true });
+      })();
+    </script>
+</body>
+
+</html>
